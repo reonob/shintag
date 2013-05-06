@@ -1,0 +1,33 @@
+﻿/* 
+	#1b1b1f - темный основной  
+	black - текст (темный)
+	white - текст (светлый)
+	#fee232 - желтый
+	#c30e18 - красный
+*/
+
+
+#main_logo {
+	margin: 0 auto 20px;
+	display: block;
+	width:;
+	height:;
+}
+#forum {
+	margin: 20px 0 0;
+}
+#forum h1 {
+	font-size: 120%;
+	font-weight: bold;
+	margin-bottom: 13px;
+}
+#forum ul li {
+	margin: 8px 0;
+	list-style: url(/images/lastpost-right.png);
+	margin-left: 20px;
+}
+#side {
+	width: 250px;
+	float: right;
+	margin: 20px 0;
+}

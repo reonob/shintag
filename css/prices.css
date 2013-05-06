@@ -1,0 +1,48 @@
+/* 
+	#1b1b1f - темный основной  
+	black - текст (темный)
+	white - текст (светлый)
+	#fee232 - желтый
+	#c30e18 - красный
+	#444 - серый
+*/
+div.catalog {
+	margin-top: 20px;
+}
+ul.prices ul li {
+	display: inline-block;
+	vertical-align: top;
+}
+ul.prices > li {
+	margin-bottom: 10px;
+}
+ul.prices li h2 {
+	font-size: 150%;
+	background: #eee;
+	padding: 7px 5px;
+}
+article.price {
+	width: 200px;
+	margin: 15px 15px;
+}
+article.price img.avatar {
+	width: 150px;
+	height: 150px;
+	margin: 5px;
+}
+article.price h1 {
+	font-size: 100%;
+	font-weight: bold;
+	margin: 5px 0;
+}
+article.price span.params {
+	color: #444;
+	display: block;
+}
+article.price span.price {
+	display: block;
+	margin-top: 7px;
+	font-weight: bold;
+	font-size: 110%;
+	color: #c30e18;
+}

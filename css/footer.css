@@ -1,0 +1,65 @@
+﻿/* 
+	#1b1b1f - темный основной  
+	black - текст (темный)
+	white - текст (светлый)
+	#fee232 - желтый
+	#c30e18 - красный
+	#444 - серый
+*/
+
+footer {
+	background: #1b1b1f;
+	color: white;
+	padding: 0 25px;
+	position: relative;
+	margin-top: -45px; /* negative value of footer height */
+	height: 45px;
+	clear: both;
+	min-width: 750px;
+}
+footer a {
+	display: block;
+    text-decoration: none;
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	padding: 17px 7px 11px;
+	cursor: pointer;
+	color: white;
+}
+footer .left {
+	float: left;
+}
+footer .right {
+	float: right;
+}
+footer ul li {
+	display: inline-block;
+}
+footer ul.left li a:hover {
+	color: #fee232;
+}
+#soc_footer {
+	margin-top: 12px;
+}
+#soc_footer li a {
+	background: url('../images/soc.png');
+	width: 25px;
+	height: 25px;
+	padding: 0;
+}
+#soc_footer .twitter {
+	background-position: 0;
+}
+#soc_footer .facebook {
+	background-position: -25px 0;
+}
+#soc_footer .googleplus {
+	background-position: -50px 0;
+}
+#soc_footer .vkontakte {
+	background-position: -75px 0;
+}
+footer span.copyright {
+	font-size: 12px;
+	margin-left: 5px;
+}

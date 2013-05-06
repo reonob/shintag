@@ -1,0 +1,175 @@
+/* 
+	#1b1b1f - темный основной  
+	black - текст (темный)
+	white - текст (светлый)
+	#fee232 - желтый
+	#c30e18 - красный
+	#444 - серый
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	display:block;
+}
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,img,ins,kbd,q,s,samp,small,strike,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td { margin:0; padding:0; border:0; outline:0; font-weight:inherit; font-style:inherit; font-size:100%; font-family:inherit; vertical-align:baseline; }
+:focus { outline:0; }
+a:active { outline:none; }
+body { line-height:1; color:black; background:white; }
+ol,ul { list-style:none; }
+table { border-collapse:separate; border-spacing:0; }
+caption,th,td { text-align:left; font-weight:normal; }
+blockquote:before,blockquote:after,q:before,q:after { content:""; }
+blockquote,q { quotes:"" ""; }
+a { color: inherit; }
+
+a {
+	color: #0052C2;
+}
+a:hover {
+	color: #c30e18;
+}
+
+.over {
+    text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+body {
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	color: black;
+	font-size: 90%;
+}
+html, body {
+	height: 100%;
+}
+#wrap {
+	min-height: 100%;
+}
+#main {
+	padding-bottom: 75px;
+	margin: 0 25px;
+}  /* must be same height as the footer */
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
+}
+
+button.find {
+	border: 0;
+	background: #c30e18;
+	color: white;
+	width: 80px;
+	height: 31px;
+	padding: 4px 5px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+
+/* find block */
+
+#form_block {
+	display: table;
+	width: 100%;
+	margin-bottom: 15px;
+}
+#form_block div {
+	display: table-cell;
+}
+#form_block div:first-child {
+	border: 1px #1b1b1f solid;
+	border-right: 0;
+	vertical-align: top;
+}
+#form_block div:last-child {
+	width: 80px;
+}
+#search_input {
+	height: 21px;
+	width: 98%;
+	padding: 3px 5px;
+	border: 0;
+	font-size: 95%;
+}
+input {
+	background: white;
+}
+#search_button {
+	font-size: 16px;
+}	
+
+/* стили для webkit */
+input::-webkit-input-placeholder { 
+	font-style: italic; 
+}
+
+/* стили для mozilla */
+input:-moz-placeholder { 
+	font-style: italic; 
+}
+
+/* end */
+
+button {
+	text-decoration: none;
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	border: 0;
+	cursor: pointer;
+}
+.blue_button {
+	background: #18b5eb;
+	color: white;
+	padding: 5px 18px;
+	font-size: 100%;
+}
+.after_arrow span {
+	width: 8px;
+	height: 7px;
+	margin-left: 5px;
+	margin-bottom: 2px;
+	display: inline-block !important;
+	background: url('../images/bt_arrow.png') -16px 0 no-repeat;
+}
+.after_arrow.active span {
+	background-position: -16px 100%;
+}
+.after_s_arrow span {
+	width: 6px;
+	height: 5px;
+	margin-left: 5px;
+	margin-bottom: 1px;
+	display: inline-block;
+	background: url('../images/s_bt_arrow.png') -12px 0 no-repeat;
+}
+.after_s_arrow.active span {
+	background-position: -12px 100%;
+}
+.dropdown_block {
+	display: none;
+}
+.dropdown_head {
+	cursor: pointer;
+}
+div.breadcrumbs {
+	font-size: 80%;
+}
+#center_block {
+	margin: 35px 15% 0;
+	min-width: 700px;
+}
+#main {
+	margin: 0;
+}
+#wrap {
+	min-width: 800px;
+}

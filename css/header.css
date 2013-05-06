@@ -1,0 +1,133 @@
+﻿/* 
+	#1b1b1f - темный основной  
+	black - текст (темный)
+	white - текст (светлый)
+	#fee232 - желтый
+	#c30e18 - красный
+	#444 - серый
+*/
+
+header {
+	background: #1b1b1f;
+	color: white;
+	padding: 0 25px;
+	height: 45px;
+}
+header .left {
+	float: left;
+}
+header .right {
+	float: right;
+}
+header nav.left {
+	margin-left: 25px;
+}
+header nav ul li {
+	display: inline-block;
+	position: relative;
+}
+header nav a {
+	color: white;
+}
+header nav a:hover, header nav a:focus, header nav a:active {
+	color: #fee232;
+}
+header nav .arrow {
+	width: 8px;
+	height: 7px;
+	margin-left: 5px;
+	margin-bottom: 2px;
+	display: inline-block;
+	background: url('../images/bt_arrow.png') no-repeat;
+}
+header nav a.parent:hover .arrow, header nav a.parent:focus .arrow, header nav a:active .arrow {
+	background: url('../images/bt_arrow.png') -8px 0 no-repeat;
+}
+header nav ul li ul:before, header nav ul li form:before {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: -20px;
+	left: 50%;
+	border: 10px solid;
+	border-color: transparent transparent #505d6f transparent; 
+}
+header nav ul li ul, header nav ul li form {
+	display: none;
+	position: absolute;
+	left: -20%;
+	color: white;
+	background: #505d6f;
+	margin-top: 3px;
+	z-index: 100;
+}
+#language_select ul {	
+	min-width: 200px;
+}
+#language_select ul li a span {
+	float: right;
+	display: none;
+}
+#language_select ul li a:hover span {
+	display: inline-block;
+	margin-right: 5px;
+	font-style: italic;
+}
+header nav ul li ul a {
+	padding: 10px;
+	display: block;
+}
+header nav>ul>li a:focus ~ ul, 
+header nav>ul>li a:active ~ ul, 
+header nav ul li ul:hover,
+header nav>ul>li a:focus ~ form, 
+header nav>ul>li a:active ~ form, 
+header nav ul li form:hover { 
+   display: block; 
+} 
+header nav ul li ul li {
+	display: block;
+}
+header nav ul li ul li:hover {
+	background: #18b5eb;
+}
+header nav ul li ul li:hover a {
+	color: white;
+}
+header nav a {
+	display: block;
+    text-decoration: none;
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	padding: 17px 7px 11px;
+	cursor: pointer;
+}
+#fast_login input {
+	border: 1px #a4a4a4 solid;
+	height: 20px;
+	padding: 0 5px;
+	width: 120px;
+}
+#fast_login label {
+	width: 55px;
+	display: inline-block;
+	text-align: right;
+	margin-right: 5px;
+}
+#fast_login {
+	padding: 15px 7px 9px;
+	left: -150%;
+}
+#fast_login div {
+	width: 210px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+#fast_login button {
+	background: #18b5eb;
+	color: white;
+	padding: 5px 12px;
+	font-size: 90%;
+	margin: 5px;
+}

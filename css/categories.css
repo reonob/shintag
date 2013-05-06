@@ -1,0 +1,73 @@
+/* 
+	#1b1b1f - темный основной  
+	black - текст (темный)
+	white - текст (светлый)
+	#fee232 - желтый
+	#c30e18 - красный
+	#444 - серый
+*/
+#categories ul li {
+	display: inline-block;
+}
+#categories {
+	margin: 20px 0;
+	margin-right: 270px;
+}
+#categories td {
+	width: 50%;
+	padding: 0 10px;
+	vertical-align: top;
+}
+#categories a {
+	text-decoration: none;
+}
+#categories li:hover a.main {
+	color: #c30e18;
+}
+#categories a.main {
+	font-size: 100%;
+	font-weight: bold;
+	display: inline-block;
+	margin-bottom: 5px;
+	text-decoration: underline;
+}
+#categories span.menu_icon {
+	width: 28px;
+	height: 28px;
+	margin-right: 5px;
+	background: url(/images/mainDirIcons9.png) no-repeat;
+	display: inline-block;
+}
+#categories span.icon_1 {
+	background-position: -10px -7px;
+}
+#categories li:hover span.icon_1 { 
+	background-position: -48px -7px;
+}
+#categories span.icon_2 {
+	background-position: -10px -45px;
+}
+#categories li:hover span.icon_2 { 
+	background-position: -48px -45px;
+}
+#categories span.icon_3 {
+	background-position: -10px -83px;
+}
+#categories li:hover span.icon_3 { 
+	background-position: -48px -83px;
+}
+#categories span.icon_4 {
+	background-position: -10px -121px;
+}
+#categories li:hover span.icon_4 { 
+	background-position: -48px -121px;
+}
+#categories span.icon_5 {
+	background-position: -10px -159px;
+}
+#categories li:hover span.icon_5 { 
+	background-position: -48px -159px;
+}
+#categories td > ul > li  {
+	margin-bottom: 10px;
+}

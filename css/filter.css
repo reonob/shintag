@@ -1,0 +1,135 @@
+/* 
+	#1b1b1f - темный основной  
+	black - текст (темный)
+	white - текст (светлый)
+	#fee232 - желтый
+	#c30e18 - красный
+	#444 - серый
+*/
+#filter {
+	margin-top: 40px;
+}
+#filter ul.buttons li {
+	display: inline-block;
+	background: #c30e18;
+	font-size: 150%;
+	color: #fee232;
+	padding: 7px 20px;
+	cursor: pointer;
+	border-radius: 10px 10px 0 0;
+	margin-left: 58px;
+	font-weight: bold;
+}
+#filter ul.buttons li:before {
+	content: '';
+	width: 75px;
+	height: 65px;
+	display: inline-block;
+	position: absolute;
+	margin-top: -35px;
+	margin-left: -77px;
+}
+#menu1:before {
+	background: url('/images/menu1.png');
+}
+#menu2:before {
+	background: url('/images/menu2.png');
+}
+#menu3:before {
+	background: url('/images/menu3.png');
+}
+#menu4:before {
+	background: url('/images/menu4.png');
+}
+#filter ul.buttons li.active {
+	background: url(/images/filter_bg.gif);
+}
+#filter ul.buttons {
+	text-align: right;
+}
+#filter div.form {
+	background: url(/images/tyre_bg.png) 100% 100% no-repeat,
+				url(/images/filter_bg.gif) 0 0 repeat;
+	padding: 15px;
+}
+#filter div.form form label {
+	color: white;
+	font-weight: bold;
+	font-size: 100%;
+	display: block;
+}
+#filter div.form form select {
+	height: 25px;
+	display: block;
+	margin-top: 5px;
+}
+#filter div.form form div.left, #filter div.form form div.right {
+	display: inline-block;
+	vertical-align: top;
+}
+#tyre_sizes {
+	position: relative;
+	display: inline-block;
+}
+#tyre_sizes div {
+	position: absolute;
+	width: 113px;
+	height: 47px;
+	background: url(/images/tyre_sizes.png);
+	right: -59px;
+	bottom: -149px;
+}
+#tyre_sizes div.none {
+	background-position: 0 0;
+}
+#tyre_sizes div.width {
+	background-position: 0 -48px;
+}
+#tyre_sizes div.height {
+	background-position: 0 -96px;
+}
+#tyre_sizes div.radius {
+	background-position: 0 -143px;
+}
+#filter div.form form div.right input.submit {
+	width: 100px;
+	height: 60px;
+	border-radius: 10px;
+	background: #c30e18 url(/images/find.png) no-repeat;
+	cursor: pointer;
+	margin: 25px 0 0 0;
+	border: 0;
+	color: white;
+	font-size: 150%;
+	font-weight: bold;
+}
+#filter div.form form div.left div {
+	padding: 10px 10px 10px 0;
+	display: inline-block;
+}
+#filter div.form form div.left div div {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+#filter div.form form div.long {
+	margin-right: 15px;
+}
+#filter div.form form select.long {
+	width: 200px;
+}
+#filter div.form form input[type='text'] {
+	height: 23px;
+	width: 200px;
+	border: 1px #777 solid;
+	margin-top: 5px;
+}
+#filter div.form form input[type='checkbox'] {
+	margin-top: 8px;
+}
+#filter div.form form label.inline {
+	display: inline-block;
+	margin: 0 3px;
+}
+#filter div.form form input.min {
+	width: 100px;
+}
