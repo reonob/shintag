@@ -1,0 +1,50 @@
+﻿/* 
+	#2f3a49 - темный основной  
+	#505d6f - посветлее основной
+	#2f3a49 - текст (темный)
+	white - текст (светлый)
+	#18b5eb - синий основной
+	#a4a4a4 - обрамление полей инпут светло-светло-серый
+	#efefef - светло серый (блок)
+	#e0e0e0 - светло серый темнее (блок)
+	#13a9dd - синий темный
+*/
+#column_center {
+	width: 70%;
+	margin: 0 10% 0 25%;
+}
+#content_wrap {
+	margin-top: 30px;
+}
+#main {
+	margin: 0 25px;
+}
+#wrap {
+	/*min-width: 1000px;*/
+}
+footer {
+	/*min-width: 950px;*/
+}
+#column_center h2 {
+	font-size: 150%;
+	font-weight: bold;
+	display: inline-block;
+}
+#content_wrap ul li a {
+	font-size: 110%;
+	line-height: 1.3;
+	color: #13a9dd;
+}
+#content_wrap > ul > li > a {
+	font-size: 110%;
+	font-weight: bold;
+	color: #2f3a49;
+}
+#content_wrap ul ul {
+	margin-left: 10px;
+}
+#content_wrap li.parent {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 25px 15px 0;
+}

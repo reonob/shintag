@@ -1,0 +1,65 @@
+﻿/* 
+	#2f3a49 - темный основной  
+	#505d6f - посветлее основной
+	#2f3a49 - текст (темный)
+	white - текст (светлый)
+	#18b5eb - синий основной
+	#a4a4a4 - обрамление полей инпут светло-светло-серый
+	#efefef - светло серый (блок)
+	#e0e0e0 - светло серый темнее (блок)
+	#13a9dd - синий темный
+*/
+
+#center_block {
+	margin: 0 auto;
+	padding: 10% 0 10%;
+	width: 60%;
+	min-width: 700px;
+}
+#main {
+	margin: 0;
+}
+#wrap {
+	min-width: 800px;
+}
+#center_block h1 {
+	font-size: 250%;
+	margin-bottom: 20px;
+	text-align: center;
+}
+#edit_data input {
+	margin: 5px 0 10px;
+	border: 1px #a4a4a4 solid;
+	height: 22px;
+	padding: 0 5px;
+	width: 200px;
+}
+#edit_data label {
+	font-weight: bold;
+	margin-right: 20px; 
+}
+#edit_data td.label {
+	text-align: right;
+}
+#edit_data td button {
+	margin: 10px 10px 0;
+	display: inline-block;
+}
+#edit_data td.buttons {
+	text-align: center;
+}
+#edit_data table {
+	margin: 0 auto;
+}
+#edit_data table td.center {
+	text-align: center;
+	font-weight: bold;
+	padding: 5px 0;
+	max-width: 400px;
+}
+#edit_data table td.small {
+	text-align: center;
+	font-style: italic;
+	padding: 5px 0;
+	max-width: 400px;
+}

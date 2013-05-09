@@ -1,0 +1,62 @@
+﻿/* 
+	#2f3a49 - темный основной  
+	#505d6f - посветлее основной
+	#2f3a49 - текст (темный)
+	white - текст (светлый)
+	#18b5eb - синий основной
+	#a4a4a4 - обрамление полей инпут светло-светло-серый
+	#efefef - светло серый (блок)
+	#e0e0e0 - светло серый темнее (блок)
+	#13a9dd - синий темный
+*/
+article.brand_article {
+	border: 1px #a4a4a4 solid;
+	padding: 7px 7px 5px;
+	margin: 0 1% 1% 0;
+	width: 40%;
+	display: inline-block;
+}
+article.brand_article td {
+	vertical-align: top;
+}
+article.brand_article a {
+	color: #13a9dd;
+}
+article.brand_article table {
+	border-collapse: collapse;
+	width: 100%;
+	height: 100px !important;
+}
+article.brand_article td.brand_avatar {
+	width: 100px;
+	padding-right: 8px;
+}
+article.brand_article td.brand_avatar img {
+	width: 100px;
+	height: 100px;
+	border: 1px #a4a4a4 solid;
+}
+article.brand_article h1 {
+	font-size: 180%;
+}
+article.brand_article td.description span {
+	display: block;
+	font-size: 90%;
+	padding: 5px 0 0;
+}
+article.brand_article td.go_to {
+	padding: 5px 0;
+}
+article.brand_article td.buttons {
+	padding: 5px 0;
+	vertical-align: bottom;
+}
+article.brand_article td.buttons a {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	text-decoration: none;
+	background: #13a9dd;
+	color: white;
+	text-align: center;
+}

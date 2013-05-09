@@ -1,0 +1,158 @@
+﻿/* 
+	#2f3a49 - темный основной  
+	#505d6f - посветлее основной
+	#2f3a49 - текст (темный)
+	white - текст (светлый)
+	#18b5eb - синий основной
+	#a4a4a4 - обрамление полей инпут светло-светло-серый
+	#efefef - светло серый (блок)
+	#e0e0e0 - светло серый темнее (блок)
+	#13a9dd - синий темный
+*/
+#column_center {
+	margin: 30px auto 0;
+	width: 65%;
+	min-height: 380px;
+}
+#column_center.main {
+	background: url(../images/about_bg.jpg) top right no-repeat;
+}
+#column_center.job {
+	width: 70%;
+	margin: 30px 10% 0 25%;
+}
+#column_center.capabilities {
+	margin: 30px auto 0;
+	width: 90%;
+}
+#column_center.capabilities section.column {
+	display: inline-block;
+	width: 40%;
+	margin: 0 2.5%;
+	vertical-align: top;
+}
+#column_center.capabilities section.column h1 {
+	font-size: 150%;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+#column_center.capabilities section.column p {
+	margin-bottom: 20px;
+}
+#column_center.capabilities section.column ul {
+	margin: 7px 0 20px;
+	list-style: square outside;
+	margin-left: 20px;
+}
+#column_center.capabilities section.column ul li {
+	margin: 4px 0;
+}
+#breadcrumbs {
+	display: inline-block;
+	font-weight: bold;
+	margin-bottom: 14px;
+}
+#breadcrumbs a {
+	color: #2f3a49 !important;
+}
+#breadcrumbs span.active {
+	color: #13a9dd;
+}
+#column_center div.main_text {
+	width: 65%;
+	display: inline-block;
+}
+#column_center div.main_text p {
+	margin-bottom: 20px;
+	text-indent: 5px;
+	font-size: 110%;
+}
+#column_center a {
+	color: #13a9dd;
+}
+#column_center i.sign {
+	display: block;
+	text-align: right;
+	padding: 10px 30px 0 0;
+}
+#column_center.contacts {
+	font-size: 110%;
+	line-height: 1.5;
+}
+#column_center.contacts > ul.soc li {
+	margin-left: 17px;
+}
+#column_center.contacts > ul.soc li span {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url(../images/soc_s.png);
+	background-repeat: no-repeat;
+	vertical-align: top;
+	margin-right: 5px;
+}
+#column_center.contacts > ul.soc li.tw span {
+	background-position: 0 0;
+}
+#column_center.contacts > ul.soc li.fb span {
+	background-position: -20px 0;
+}
+#column_center.contacts > ul.soc li.gp span {
+	background-position: -40px 0;
+}
+#column_center.contacts > ul.soc li.vk span {
+	background-position: -60px 0;
+}
+#column_center.contacts > ul.adress {
+	margin-top: 8px;
+}
+#column_center.contacts ul.adress li {
+	font-weight: bold;
+}
+#column_center.contacts ul.adress li ul li {
+	font-weight: normal;
+	margin-left: 17px;
+}
+#column_center.job ul.vacancy > li {
+	display: inline-block;
+	vertical-align: top;
+	width: 45%;
+	margin-bottom: 14px;
+}
+#column_center.job ul.vacancy h2 {
+	font-size: 140%;
+	font-weight: bold;
+	margin-bottom: 9px;
+}
+#column_center.job ul.vacancy > li > a {
+	color: #2f3a49;
+}
+#column_center.job ul.vacancy li ul {
+}
+#column_center.job ul.vacancy li ul li {
+	margin: 5px 0;
+}
+#column_center.job div.after {
+	margin-top: 40px;
+}
+#column_center.job div.after p {
+	margin-bottom: 20px;
+	font-size: 110%;
+}
+#column_center.job article.vacancy h1 {
+	font-size: 150%;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+#column_center.job article.vacancy span.small {
+	font-size: 105%;
+	display: block;
+	margin-bottom: 20px;
+}
+#column_center.job article.vacancy h2 {
+	font-weight: bold;
+}
+#column_center.job article.vacancy p {
+	margin-bottom: 20px;
+	font-size: 100%;
+}

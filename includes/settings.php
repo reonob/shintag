@@ -24,8 +24,8 @@
    class DBSettings
    {
       public $host = "localhost";
-      public $user = "";
-      public $password = "";
+      public $user = "smite";
+      public $password = "smite107";
       public $database = "8cost";
       public $encode = "utf8";
    }

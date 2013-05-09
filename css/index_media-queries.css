@@ -1,0 +1,33 @@
+﻿/* 
+	#2f3a49 - темный основной  
+	#505d6f - посветлее основной
+	#2f3a49 - текст (темный)
+	white - текст (светлый)
+	#18b5eb - синий основной
+	#a4a4a4 - обрамление полей инпут светло-светло-серый
+	#efefef - светло серый (блок)
+	#e0e0e0 - светло серый темнее (блок)
+	#13a9dd - синий темный
+*/
+
+@media screen and (max-width: 1325px) {
+	#center_block {
+		width: 65%;
+	}
+}
+@media screen and (max-width: 1195px) {
+	#search_nav {
+		font-size: 85%;
+	}
+}
+@media screen and (max-width: 1060px) {
+	#center_block {
+		width: 70%;
+	}
+	#center_block h1 {
+		font-size: 190%;
+	}
+	#advice {
+		font-size: 85%;
+	}
+}

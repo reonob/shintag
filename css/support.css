@@ -1,0 +1,103 @@
+﻿/* 
+	#2f3a49 - темный основной  
+	#505d6f - посветлее основной
+	#2f3a49 - текст (темный)
+	white - текст (светлый)
+	#18b5eb - синий основной
+	#a4a4a4 - обрамление полей инпут светло-светло-серый
+	#efefef - светло серый (блок)
+	#e0e0e0 - светло серый темнее (блок)
+	#13a9dd - синий темный
+*/
+#column_center {
+	width: 70%;
+	margin: 0 10% 0 25%;
+}
+#content_wrap {
+	margin-top: 30px;
+}
+#main {
+	margin: 0 25px;
+}
+#wrap {
+	/*min-width: 1000px;*/
+}
+footer {
+	/*min-width: 950px;*/
+}
+#column_center h2 {
+	font-size: 150%;
+	font-weight: bold;
+	display: inline-block;
+}
+#breadcrumbs {
+	display: inline-block;
+	font-weight: bold;
+	margin-bottom: 14px;
+}
+#breadcrumbs span.active {
+	color: #13a9dd;
+}
+#questions {
+	list-style-image: url(../images/diagr.png);
+	margin-left: 30px;
+}
+#questions li > a {
+	font-style: italic;
+	font-size: 140%;
+	vertical-align: top;
+}
+#questions li {
+	padding: 5px 0;
+}
+#questions li div.dropdown_block {
+	margin: 9px 0 0 5px;
+}
+#questions li div.dropdown_block p {
+	margin-bottom: 8px;
+}
+#questions li div.dropdown_block p:last-child {
+	margin-bottom: 0;
+}
+#questions li a.after_arrow span {
+	margin-bottom: 5px;
+}
+#questions li div.dropdown_block p a {
+	color: #13a9dd;
+}
+#new_question table, #new_comment table {
+	margin-top: 25px;
+}
+#new_question table td, #new_comment table td {
+	padding: 0 20px 15px 0;
+} 
+#new_question label, #new_comment label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+#new_question small, #new_comment small {
+	font-style: italic;
+	display: block;
+	font-size: 90%;
+	margin-bottom: 5px;
+}
+#new_question select, #new_comment select {
+	width: 210px;
+	height: 22px;
+} 
+#new_question input, #new_comment input {
+	border: 1px #a4a4a4 solid;
+	height: 22px;
+	padding: 0 5px;
+	width: 700px;
+}
+#new_comment #comment_name {
+	width: 300px;
+}
+#new_question textarea, #new_comment textarea {
+	border: 1px #a4a4a4 solid;
+	height: 150px;
+	width: 800px;
+	padding: 5px;
+}

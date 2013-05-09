@@ -1,0 +1,110 @@
+﻿/* 
+	#2f3a49 - темный основной  
+	#505d6f - посветлее основной
+	#2f3a49 - текст (темный)
+	white - текст (светлый)
+	#18b5eb - синий основной
+	#a4a4a4 - обрамление полей инпут светло-светло-серый
+	#efefef - светло серый (блок)
+	#e0e0e0 - светло серый темнее (блок)
+	#13a9dd - синий темный
+*/
+aside {
+	width: 20%; /* Ширина правой колонки */
+	float: right;
+	margin-left: 10px;
+}
+aside section:first-child > h1 {
+	padding-top: 0;
+}
+aside section > h1 {
+	margin-bottom: 7px;
+}
+#column_center {
+	width: 80%;
+	margin-right: 21%;
+}
+#content_wrap {
+	margin-top: 15px;
+}
+#main > h1 {
+	font-size: 200%;
+	font-weight: bold;
+	display: inline-block;
+}
+#wrap {
+	min-width: 1000px;
+}
+footer {
+	min-width: 950px;
+}
+article.news_article {
+	margin-bottom: 10px;
+}
+article.news_article h1 a {
+	color: #13a9dd;
+	text-decoration: none;
+}
+article.news_article h1 {
+	font-size: 200%;
+	margin-bottom: 8px;
+}
+article.news_article time {
+	font-size: 80%;
+	color: #505d6f;
+	font-style: italic;
+	margin-right: 5px;
+}
+article.news_article div.content {
+	margin-top: 10px;
+	font-size: 110%;
+	width: 95%;
+	min-height: 150px;
+}
+article.news_article div.content div {
+	margin-left: 260px;
+}
+article.news_article div.content img {
+	display: block;
+	float: left;
+	margin-right: 10px;
+	width: 250px;
+}
+article.news_article div.content button.read_more {
+	margin-top: 15px;
+}
+article.news_article div.share {
+	visibility: hidden;
+}
+article.news_article:hover div.share {
+	visibility: visible;
+}
+aside section>h1 {
+	font-size: 150%;
+	font-weight: bold;
+	padding: 6px 0;
+}
+aside section article.aside_news h1 a {
+	color: #13a9dd;
+}
+aside section article.aside_news time {
+	font-size: 80%;
+	color: #505d6f;
+	font-style: italic;
+}
+aside section article.aside_news {
+	margin-bottom: 5px;
+}
+aside section {
+	margin-bottom: 10px;
+}
+#settings_news h1 {
+	margin-bottom: 0px;
+}
+#settings_form label {
+	display: block;
+	margin: 7px 0;
+}
+#settings_form select {
+	margin-bottom: 7px;
+}

@@ -1,0 +1,29 @@
+/* 
+	#2f3a49 - темный основной  
+	#505d6f - посветлее основной
+	#2f3a49 - текст (темный)
+	white - текст (светлый)
+	#18b5eb - синий основной
+	#a4a4a4 - обрамление полей инпут светло-светло-серый
+	#efefef - светло серый (блок)
+	#e0e0e0 - светло серый темнее (блок)
+	#13a9dd - синий темный
+*/
+
+#header_find {
+	margin-top: 25px;
+}
+#search_form {
+	width: 45%;
+	display: inline-block;
+}
+#search_nav {
+	vertical-align: top;
+	display: inline-block;
+	float: none;
+	width: 50%;
+	margin: 7px 0 0 20px;
+}
+#search_nav ul li {
+	padding: 0 3%;
+}
