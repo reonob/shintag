@@ -126,7 +126,7 @@
       public function changeLogin($new_login, $email)
       {
          global $db_link;
-         $db_link->query('UPDATE users SET login = ? WHERE email = ?', [$new_login, $email], false);
+         $db_link->query('UPDATE users SET login = ? WHERE email = ?', array($new_login, $email), false);
       }
 
       public function changePass($old_pass, $new_pass, $email)
@@ -137,20 +137,22 @@
             throw new Exception(ERROR_PASS);
          }
          global $db_link;
-         $salt = $db_link->query('SELECT salt FROM users WHERE email=?', [$email], true)[0]['salt'];
+         $salt = $db_link->query('SELECT salt FROM users WHERE email=?', array($email), true);
+		 $salt = $salt[0]['salt'];
          $pass = $this->data_h->createEncryptPass($email, $new_pass, $salt);
-         $db_link->query('UPDATE users SET password=sha1(?) WHERE email=?', [$pass, $email], false);
+         $db_link->query('UPDATE users SET password=sha1(?) WHERE email=?', array($pass, $email), false);
          $this->setUserCookie($email, $pass);
       }
 
       public function forgottenPass($email)
       {
          global $db_link;
-         $salt = $db_link->query('SELECT salt FROM users WHERE email=?', [$email], true)[0]['salt'];
+         $salt = $db_link->query('SELECT salt FROM users WHERE email=?', array($email), true);
+		 $salt = $salt[0]['salt'];
          $pass = $this->data_h->createSalt(10);
          $new_pass = $this->data_h->createEncryptPass($email, $pass, $salt);
          $db_link->query('UPDATE users SET password=?, verification=?, register_date=now() WHERE email=?',
-                         [$new_pass, false, $email],
+                         array($new_pass, false, $email),
                          false);
          return $pass;
       }
@@ -158,7 +160,7 @@
       public function changeEmail($old_email, $new_email)
       {
          global $db_link;
-         $db_link->query('UPDATE users SET email=? WHERE email=?', [$new_email, $old_email]);
+         $db_link->query('UPDATE users SET email=? WHERE email=?', array($new_email, $old_email));
          $this->registerSession($new_email);
          $this->setUserCookie($new_email);
       }
@@ -166,7 +168,7 @@
       public function deleteAcc($email)
       {
          global $db_link;
-         $db_link->query('DELETE FROM users WHERE email=?', [$email], false);
+         $db_link->query('DELETE FROM users WHERE email=?', array($email), false);
          $this->unregisterUser();
       }
 
