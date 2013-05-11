@@ -10,7 +10,7 @@
       $pass   = $post['pass'];
       $repass = $post['repass'];
       try {
-         if ((!$data_h->isFilled_Out($post))||(!$data_h->isValid_Email($email))
+         if ((!$data_h->isFilledOut($post))||(!$data_h->isValidEmail($email))
                ||($pass != $repass)||(strlen($pass) <= 5) || (strlen($login) < 5)) {
             // throw new Exception('Здесь ошибка, просто редирект на error.php закомментен');
             header("Location: /includes/error.php");

@@ -2,7 +2,7 @@
 
    class dataHandling
    {
-      public function isFilled_Out($form_vars)
+      public function isFilledOut($form_vars)
       {
          foreach ($form_vars as $key => $value) {
             if (!isset($key) || ($value == '')) {
@@ -12,14 +12,20 @@
          return true;
       }
 
-      public function isValid_Email($mail)
+      public function isValidEmail($mail)
       {
          return preg_match('/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/', $mail);
       }
 
       public function createEncryptPass($email, $pass, $salt)
       {
+
          return md5($salt.md5($pass.$salt).$email);
+      }
+
+      function unixToMySQL($timestamp)
+      {
+         return date('Y-m-d H:i:s', $timestamp);
       }
 
       public function createSalt($len = 7)
