@@ -28,7 +28,10 @@
          return $this;
       }
 
-         return md5($salt.md5($pass.$salt).$email);
+      public function validatePassword($pass, $message = ERROR_PASS_LEN)
+      {
+         if (strlen($pass) < PASS_LEN) throw new Exception($message);
+         return $this;
       }
 
       function unixToMySQL($timestamp)
