@@ -1,6 +1,6 @@
 <?php
 
-   class dataHandling
+   class DataHandling
    {
       public function isFilledOut($form_vars)
       {
