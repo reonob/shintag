@@ -2,7 +2,8 @@
    require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/container.php');
    require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/connect.php');
 
-   if ($user->checkUser()) {
+   $fromUri = isset($_GET['originating_uri']) ? $_GET['originating_uri'] : '/includes/my_account.php';
+   if (Authentification::checkCredentials()) {
       header("Location: /includes/my_account.php");
    }
    $isException = false;
