@@ -1,6 +1,7 @@
 <?php
-   require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/container.php');
-   require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/connect.php');
+   require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/container.php';
+   require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/connect.php';
+   require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/class.Mail.php';
 
    $isException = false;
    if (isset($_POST['submit'])) {
