@@ -34,9 +34,10 @@
          return $this;
       }
 
-      function unixToMySQL($timestamp)
+      public function validateRepeatPasswords($pass1, $pass2, $message = ERROR_OLD_NEW_PASS)
       {
-         return date('Y-m-d H:i:s', $timestamp);
+         if ($pass1 != $pass2) throw new Exception($message);
+         return $this;
       }
 
       public function createSalt($len = 7)
