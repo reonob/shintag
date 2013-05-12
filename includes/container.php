@@ -15,5 +15,5 @@
    $smarty = new TSmarty();
 
    $smarty->force_compile = true;
-   $smarty->assign('isLogin', $user->checkUser());
+   $smarty->assign('isLogin', Authentification::checkCredentials());
 ?>
