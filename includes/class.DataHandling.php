@@ -2,14 +2,16 @@
 
    class DataHandling
    {
-      public function isFilledOut($form_vars)
+      public function validateForm($form_vars, $message = ERROR_FORM_FILL)
       {
+         $result = true;
          foreach ($form_vars as $key => $value) {
-            if (!isset($key) || ($value == '')) {
-               return false;
+            if (!isset($key) || empty($value)) {
+               $result = false;
             }
          }
-         return true;
+         if (!count($form_vars) || !$result) throw new Exception($message);
+         return $this;
       }
 
       public function isValidEmail($mail)
