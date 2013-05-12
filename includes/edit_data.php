@@ -10,9 +10,9 @@
       require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/guardian.php');
    }
 
-   // if (empty($type)) {
-      // header("string")
-   // }
+   $possible_types = array('edit_contact_data', 'delete_acc', 'change_login', 'change_pass', 'change_email', 'forgotten_pass');
+   if (!array_search($type, $possible_types)) header("Location: /");
+
    if ($type == 'edit_contact_data') {
       #some code
    } else {
