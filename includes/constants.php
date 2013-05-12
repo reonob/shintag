@@ -13,7 +13,10 @@
    define('SEND_INCORRECT_MAIL', 'Неправильный e-mail.');
    define('ERROR_CHANGE_MAIL', 'Невозможно изменить e-mail.');
    define('ERROR_FORM_FILL', 'Некорректно заполнена форма.');
-   define('ERROR_PASS_LEN', 'Пароль должен быть длиннее 5-ти символов.');
+   define('PASS_LEN', 6);
+   define('ERROR_PASS_LEN', 'Пароль должен быть длиннее '.PASS_LEN.'-ти символов.');
+   define('LOGIN_LEN', 6);
+   define('ERROR_LOGIN_LEN', 'Пароль должен быть длиннее '.LOGIN_LEN.'-ти символов.');
    define('ERROR_FORGOTTEN_PASS', 'Невозможно активировать пароль.');
    define('ERROR_OLD_NEW_PASS', 'Введенные пароли не совпадают.');
    define('ERROR_INVALID_EMAIL', 'Введен недействительный e-mail.');
