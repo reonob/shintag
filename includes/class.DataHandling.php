@@ -40,16 +40,9 @@
          return $this;
       }
 
-      public function createSalt($len = 7)
+      function unixToMySQL($timestamp)
       {
-         $pattern = "abcdefghiklmnopqrstvwxyzABCDEFGHIKLMNOPQRSTVWXYZ0123456789";
-         $pattern_len = strlen($pattern);
-         mt_srand((int) (microtime(true) * 0xFFFF));
-         $salt = '';
-         for ($i = 0; $i < $len; $i++) {
-            $salt .= $pattern[mt_rand() % $pattern_len];
-         }
-         return $salt;
+         return date('Y-m-d H:i:s', $timestamp);
       }
 
    }
