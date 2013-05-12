@@ -34,7 +34,7 @@
                      break;
                }
             } else {
-               if (!(count($post) && $data_h->isFilled_Out($post))) throw new Exception(ERROR_FORM_FILL);
+               $data_h->validateForm($post);
                switch ($type) {
                   case 'change_login':
                      AuthorizedUser::changeLogin($_SESSION['email'], $post['new_login']);
