@@ -8,7 +8,6 @@
 {block name='div.main'}
   <div id="center_block">
   <form id="edit_data" action='/includes/edit_data.php?type={$type}' method='post'>
-    {assign var='file' value="edit_data.$type.tpl"}
   	{include file="edit_data.$type.tpl"}
 	</form>
   </div>
