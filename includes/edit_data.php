@@ -24,7 +24,7 @@
             if ($type == 'delete_acc') {
                switch ($post['submit']) {
                   case 'delete':
-                     $user->deleteAcc($_COOKIE['email']);
+                     AuthorizedUser::deleteAccount($_SESSION['email']);
                      header("Location: /");
                      break;
                   case 'cancel':
@@ -37,36 +37,26 @@
                if (!(count($post) && $data_h->isFilled_Out($post))) throw new Exception(ERROR_FORM_FILL);
                switch ($type) {
                   case 'change_login':
-                     if (strlen($post['new_login']) >= 5) {
-                        $user->changeLogin($post['new_login'], $_COOKIE['email']);
-                        $smarty->assign('successMsg', 'Логин успешно изменен.');
-                     } else {
-                        throw new Exception('Логин должен быть длиннее 5 символов');
-                     }
+                     AuthorizedUser::changeLogin($_SESSION['email'], $post['new_login']);
+                     $smarty->assign('successMsg', 'Логин успешно изменен.');
                      break;
                   case 'change_pass':
-                     $new_pass = $post['new_pass'];
-                     $rep_pass = $post['rep_pass'];
-                     if ($new_pass != $rep_pass) throw new Exception(ERROR_OLD_NEW_PASS);
-                     if (strlen($new_pass) <= 5) throw new Exception(ERROR_PASS_LEN);
-                     $user->changePass($post['old_pass'], $new_pass, $_COOKIE['email']);
+                     if ($post['new_pass'] != $post['rep_pass']) throw new Exception(ERROR_OLD_NEW_PASS);
+                     AuthorizedUser::changePassword($_SESSION['email'], $post['old_pass'], $post['new_pass']);
                      $smarty->assign('successMsg', 'Пароль успешно изменен.');
                      break;
                   case 'change_email':
                      $new_email = $_POST['new_mail'];
-                     if (!$data_h->isValid_Email($new_email)) throw new Exception(ERROR_INVALID_EMAIL);
-                     $mail->sendChangeMail($_COOKIE['email'], $new_email);
+                     $data_h->validateEmail($new_email, ERROR_INVALID_EMAIL);
+                     $user = new UserDB($new_email);
+                     if ($user->isExist) throw new Exception(ERROR_MAIL_ALREADY_REGISTERED);
+                     $mail->sendChangeMail($_SESSION['email'], $new_email);
                      $smarty->assign('successMsg', 'Письмо отправлено.');
                      break;
                   case 'forgotten_pass':
-                     $email = $post['mail'];
-                     $result = $db_link->query('SELECT login FROM users WHERE email=?', [$email], true);
-                     if (empty($result)) {
-                        throw new Exception(INCORRECT_MAIL);
-                     }
-                     $pass = $user->forgottenPass($email);
-                     $mail->sendForgottenPassMail($email, $result[0]['login'], $pass);
-                     $smarty->assign('successMsg', 'Письмо отправлено.');
+                     $new_pass = AuthorizedUser::forgottenPassword($post['email']);
+                     $mail->sendForgottenPassMail($post['email'], $new_pass);
+                     $_SESSION['isAdded'] = true;
                      break;
                   default:
                      header('Location: /');
