@@ -17,7 +17,7 @@
          $this->setCacheDir($dir.'cache/');
 
          // $this->caching = Smarty::CACHING_LIFETIME_CURRENT;
-         $this->assign('app_name', '8cost');
+         $this->assign('app_name', 'shintag');
       }
    }
 
@@ -26,7 +26,7 @@
       public $host = "localhost";
       public $user = "smite";
       public $password = "smite107";
-      public $database = "8cost";
+      public $database = "shintag";
       public $encode = "utf8";
    }
 
