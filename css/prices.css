@@ -9,21 +9,17 @@
 div.catalog {
 	margin-top: 20px;
 }
-ul.prices ul li {
-	display: inline-block;
-	vertical-align: top;
-}
-ul.prices > li {
-	margin-bottom: 10px;
-}
-ul.prices li h2 {
+div.catalog h2 {
 	font-size: 150%;
 	background: #eee;
 	padding: 7px 5px;
+	margin: 10px 0;
 }
 article.price {
 	width: 200px;
 	margin: 15px 15px;
+	display: inline-block;
+	vertical-align: top;
 }
 article.price img.avatar {
 	width: 150px;

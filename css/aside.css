@@ -1,16 +1,37 @@
+/* 
+	#1b1b1f - темный основной  
+	black - текст (темный)
+	white - текст (светлый)
+	#fee232 - желтый
+	#c30e18 - красный
+	#444 - серый
+*/
+
 aside {
-	width: 20%; /* Ширина левой колонки */
 	float: left;
-	margin-right: 4%;
 }
-aside.job, aside.support {
-	width: 19%;
+#search_filter label {
+	display: block;
+	font-weight: bold;
+	margin: 7px 0;
 }
-aside.conf {
-	width: 18%;
+#search_filter label.inline {
+	display: inline-block;
+	margin: 5px;
 }
-aside section:first-child > h1 {
-	padding-top: 0;
+#search_filter select {
+	height: 25px;
+	width: 220px;
+}
+#search_filter input {
+	border: 1px #888 solid;
+	height: 23px;
+}
+#search_filter input.min {
+	width: 75px;
+}
+#search_filter select.min {
+	width: auto;
 }
 #categories {
 	font-size: 90%;
@@ -19,6 +40,10 @@ aside section:first-child > h1 {
 #categories > ul > li > a {
 	font-weight: bold;
 	text-decoration: none;
+	color: #1b1b1f;
+}
+#saler h1 {
+	font-weight: bold;
 }
 #categories > ul > li {
 	margin: 7px 0;
@@ -33,84 +58,4 @@ aside section:first-child > h1 {
 	margin: 5px 0 8px 15px;
 	font-size: 90%;
 	display: none;
-}
-aside section > h1 {
-	font-size: 150%;
-	font-weight: bold;
-	padding: 6px 0;
-	margin-bottom: 7px;
-}
-aside section {
-	margin-bottom: 10px;
-}
-aside input {
-	border: 1px #a4a4a4 solid;
-	height: 22px;
-	padding: 0 5px;
-	width: 200px;
-}
-aside label {
-	display: block;
-	font-size: 90%;
-	padding: 5px 0;
-}
-#search_settings a {
-	color: #13a9dd;
-}
-.slider_input {
-	width: 70px;
-	margin-right: 3px;
-}
-aside.my_acc .slider_input {
-	width: 82px;
-	margin-right: 3px;
-}
-aside.my_acc .count_slider {
-	width: 215px;
-}
-aside label.inline {
-	display: inline-block;
-}
-aside select {
-	width: 210px;
-	height: 22px;
-}
-aside.top8 select, aside.my_acc select, aside.list select, aside.support select, aside.job select {
-	width: 240px;
-	height: 22px;
-}
-aside.my_acc #search_simple_form input, aside.support #search_simple_form input {
-	width: 207px;
-}
-aside button.ok {
-	margin: 10px auto;
-	display: block;
-}
-aside.top8 #search_extend_form, aside.list #search_extend_form {
-	width: 86%;
-}
-aside.list > h1 {
-	font-size: 170%;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-aside.my_acc section .dropdown_block {
-	width: 90%;
-}
-#search_simple_form button.search_find {
-	background: #18b5eb url('../images/find.png') 3px 3px no-repeat;
-	width: 24px;
-	height: 24px;
-	vertical-align: top;
-}
-#search_simple_form label {
-	font-weight: bold;
-}
-#search_menu li a {
-	color: #2f3a49;
-	font-size: 80%;
-	line-height: 1.2;
-}
-#search_menu {
-	margin: 5px 0;
 }
