@@ -1,5 +1,5 @@
 <?php
-   require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/settings.php');
+   require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/settings.php';
 
    class DBConnect
    {
@@ -35,5 +35,6 @@
 
    }
 
+   $db = new DBConnect();
    $db_link = new DBConnect();
 ?>
