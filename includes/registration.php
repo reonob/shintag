@@ -10,13 +10,12 @@
       $pass   = $post['pass'];
       $repass = $post['repass'];
       try {
-         if ((!$data_h->isFilledOut($post))||(!$data_h->isValidEmail($email))
-               ||($pass != $repass)||(strlen($pass) <= 5) || (strlen($login) < 5)) {
-            // throw new Exception('Здесь ошибка, просто редирект на error.php закомментен');
-            header("Location: /includes/error.php");
-         }
-         $user->register($login, $email, $pass);
-         include_once($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Mail.php');
+         $data_h->validateForm($post)
+                ->validateEmail($email)
+                ->validateLogin($login)
+                ->validateRepeatPasswords($pass, $repass)
+                ->validatePassword($pass);
+         Registration::register($email, $pass, $login);
          $mail = new Mail();
          $mail->sendActivationMail($email, $login);
          $_SESSION['isAdded'] = true;
@@ -26,9 +25,9 @@
          $errorMsg = '<p style="font-weight: bold">'.$e->getMessage().'</p>';
       }
    }
-   $smarty->assign('login', isset($login) ? $login : '');
-   $smarty->assign('email', isset($email) ? $email : '');
-   $smarty->assign('errorMsg', isset($errorMsg) ? $errorMsg : false);
-   $smarty->assign('isAdded', isset($_SESSION['isAdded']) ? $_SESSION['isAdded'] : false);
-   $smarty->display('registration.tpl');
+   $smarty->assign('login', isset($login) ? $login : '')
+          ->assign('email', isset($email) ? $email : '')
+          ->assign('errorMsg', isset($errorMsg) ? $errorMsg : false)
+          ->assign('isAdded', isset($_SESSION['isAdded']) ? $_SESSION['isAdded'] : false)
+          ->display('registration.tpl');
 ?>
