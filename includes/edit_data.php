@@ -40,11 +40,13 @@
                      AuthorizedUser::changeLogin($_SESSION['email'], $post['new_login']);
                      $smarty->assign('successMsg', 'Логин успешно изменен.');
                      break;
+
                   case 'change_pass':
                      if ($post['new_pass'] != $post['rep_pass']) throw new Exception(ERROR_OLD_NEW_PASS);
                      AuthorizedUser::changePassword($_SESSION['email'], $post['old_pass'], $post['new_pass']);
                      $smarty->assign('successMsg', 'Пароль успешно изменен.');
                      break;
+
                   case 'change_email':
                      $new_email = $_POST['new_mail'];
                      $data_h->validateEmail($new_email, ERROR_INVALID_EMAIL);
@@ -53,11 +55,13 @@
                      $mail->sendChangeMail($_SESSION['email'], $new_email);
                      $smarty->assign('successMsg', 'Письмо отправлено.');
                      break;
+
                   case 'forgotten_pass':
                      $new_pass = AuthorizedUser::forgottenPassword($post['email']);
                      $mail->sendForgottenPassMail($post['email'], $new_pass);
                      $_SESSION['isAdded'] = true;
                      break;
+
                   default:
                      header('Location: /');
                      break;
