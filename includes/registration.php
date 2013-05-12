@@ -18,7 +18,7 @@
                 ->validatePassword($pass);
          Registration::register($email, $pass, $login);
          $mail = new Mail();
-         $mail->sendActivationMail($email, $login);
+         $mail->sendActivationMail($email);
          $_SESSION['isAdded'] = true;
          header("Location: /includes/registration.php");
       } catch (Exception $e) {
