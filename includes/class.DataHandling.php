@@ -14,13 +14,19 @@
          return $this;
       }
 
-      public function isValidEmail($mail)
+      public function validateEmail($mail, $message = INCORRECT_MAIL)
       {
-         return preg_match('/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/', $mail);
+         if (!preg_match('/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/', $mail)) {
+            throw new Exception($message);
+         }
+         return $this;
       }
 
-      public function createEncryptPass($email, $pass, $salt)
+      public function validateLogin($login, $message = ERROR_LOGIN_LEN)
       {
+         if (strlen($login) < LOGIN_LEN) throw new Exception($message);
+         return $this;
+      }
 
          return md5($salt.md5($pass.$salt).$email);
       }
