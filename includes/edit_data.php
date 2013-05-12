@@ -71,6 +71,8 @@
       } catch (Exception $e) {
          $smarty->assign('errorMsg', $e->getMessage());
       }
-      $smarty->display('edit_data.tpl');
+
+      $smarty->assign('isAdded', isset($_SESSION['isAdded']) ? $_SESSION['isAdded'] : false)
+             ->display('edit_data.tpl');
    }
 ?>
