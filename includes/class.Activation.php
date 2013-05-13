@@ -45,7 +45,7 @@
          }
 
          if ($subj == 'forgotten') {
-            $smarty->assign('successMsg', 'Новый пароль успешно сгенерирован.');
+            $smarty->assign('successMsg', 'Новый пароль принят.');
          } else {
             $smarty->assign('successMsg', 'Вы успешно зарегистрированы!');
          }
