@@ -16,7 +16,7 @@
    define('PASS_LEN', 6);
    define('ERROR_PASS_LEN', 'Пароль должен быть длиннее '.PASS_LEN.'-ти символов.');
    define('LOGIN_LEN', 6);
-   define('ERROR_LOGIN_LEN', 'Пароль должен быть длиннее '.LOGIN_LEN.'-ти символов.');
+   define('ERROR_LOGIN_LEN', 'Логин должен быть длиннее '.LOGIN_LEN.'-ти символов.');
    define('ERROR_FORGOTTEN_PASS', 'Невозможно активировать пароль.');
    define('ERROR_OLD_NEW_PASS', 'Введенные пароли не совпадают.');
    define('ERROR_INVALID_EMAIL', 'Введен недействительный e-mail.');
