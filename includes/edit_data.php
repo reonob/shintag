@@ -53,13 +53,15 @@
                      $user = new UserDB($new_email);
                      if ($user->isExist) throw new Exception(ERROR_MAIL_ALREADY_REGISTERED);
                      $mail->sendChangeMail($_SESSION['email'], $new_email);
-                     $smarty->assign('successMsg', 'Письмо отправлено.');
+                     $_SESSION['isSend'] = true;
+                     header("Location: /includes/edit_data.php?type=$type");
                      break;
 
                   case 'forgotten_pass':
                      $new_pass = AuthorizedUser::forgottenPassword($post['email']);
                      $mail->sendForgottenPassMail($post['email'], $new_pass);
                      $_SESSION['isAdded'] = true;
+                     header("Location: /includes/edit_data.php?type=$type");
                      break;
 
                   default:
@@ -72,7 +74,8 @@
          $smarty->assign('errorMsg', $e->getMessage());
       }
 
-      $smarty->assign('isAdded', isset($_SESSION['isAdded']) ? $_SESSION['isAdded'] : false)
+      $smarty->assign('isSend', isset($_SESSION['isSend']) ? $_SESSION['isSend'] : false)
+             ->assign('isAdded', isset($_SESSION['isAdded']) ? $_SESSION['isAdded'] : false)
              ->display('edit_data.tpl');
    }
 ?>

@@ -1,6 +1,8 @@
 <h1>Изменение e-mail</h1>
+{if $isSend}
+  <p style="font-weight: bold">На указанный вами e-mail отправлено письмо с ссылкой для подтверждения смены e-mail.</p>
+{else}
 <p style="font-weight: bold">{$errorMsg|default:''}</p>
-<p style="font-weight: bold">{$successMsg|default:''}</p>
 <table>
   <tr>
     <td class="label"><label for="new_mail">Новый e-mail</label></td>
@@ -13,3 +15,4 @@
     <td colspan="2" class="buttons"><button id="send_data" class="blue_button" name="submit" value="submit">Продолжить</button></td>
   </tr>
 </table>
+{/if}

@@ -55,6 +55,8 @@
 
       private static function _changeEmail($hash)
       {
+         $_SESSION['isSend'] = null;
+
          global $smarty;
          $smarty->assign('title', 'Изменение e-mail');
 
