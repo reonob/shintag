@@ -34,26 +34,26 @@
          global $db, $data_h;
          $user = new UserDB($email);
 
-         $user->verification  = false;
          $user->login         = $login;
-         $user->register_date = time();
          $user->salt          = Encryption::generateRandomString();
          $user->password      = Encryption::encryptPass($password, $user->salt);
 
          if ($user->isExist) {
             //check if the user tried to register before time expires but confirmation e-mail
             $time = $user->register_date;
-            $verification = $user->verification;
-            if ($verification) {
+            if ($user->verification) {
                throw new Exception(ERROR_MAIL_ALREADY_REGISTERED);
             } else {
-               if (time() - $time > CONFIRMATION_TERM) {
+               if (time() - $user->register_date > CONFIRMATION_TERM) {
+                  $user->register_date = time();
                   $user->update();
                } else {
                   throw new Exception(ERROR_MAIL_CONFIRM);
                }
             }
          } else {
+            $user->verification  = false;
+            $user->register_date = time();
             $user->insert();
          }
       }
