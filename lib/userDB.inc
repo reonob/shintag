@@ -22,6 +22,13 @@
          return new UserDB(!empty($data) ? $email : null);
       }
 
+      public static function findById($id)
+      {
+         global $db;
+         $data = $db->query('SELECT email FROM users WHERE id = ?', array($id));
+         return new UserDB(!empty($data) ? $data[0]['email'] : null);
+      }
+
       function __construct($email = false)
       {
          if (!$email) return;
@@ -35,7 +42,6 @@
          if (!$this->isExist) return;
          foreach ($data[0] as $attr => $value) {
             $this->$attr = $value;
-            // echo $this->$attr."<br>";
          }
       }
 
