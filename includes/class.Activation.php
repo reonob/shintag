@@ -38,8 +38,7 @@
          if($mail->compareUniqueSignature($hash, $email, $user->login, $user->password)) {
             $user->verification = true;
             $user->update();
-            $cookie = new Cookie($email, $user->password);
-            $cookie->set();
+            AuthorizedUser::authorize($email, $user->password, true);
             $smarty->assign('isLogin', true);
          } else {
             throw new Exception($subj == 'forgotten' ? ERROR_FORGOTTEN_PASS : ERROR_MAIL);
