@@ -43,9 +43,9 @@
          return $salt;
       }
 
-      public static function encryptPass($email, $pass, $salt)
+      public static function encryptPass($pass, $salt)
       {
-         return md5($salt.md5($pass.$salt).$email);
+         return md5($salt.md5($pass.$salt).substr($salt, 2));
       }
 
    }

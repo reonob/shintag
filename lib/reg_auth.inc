@@ -37,7 +37,7 @@
          $user->login         = $login;
          $user->register_date = time();
          $user->salt          = Encryption::generateRandomString();
-         $user->password      = Encryption::encryptPass($email, $password, $user->salt);
+         $user->password      = Encryption::encryptPass($password, $user->salt);
 
          if ($user->isExist) {
             //check if the user tried to register before time expires but confirmation e-mail
@@ -67,8 +67,8 @@
       {
          $user = UserDB::findByEmail($email);
          if (!$user->isExist) throw new Exception(ERROR_LOGIN);
-         $encryptpass = Encryption::encryptPass($email, $pass, $user->salt);
-         if ($encryptpass == $user->password) {
+         $encryptpass = Encryption::encryptPass($pass, $user->salt);
+         if ($encryptpass == $user->password && $user->verification) {
             self::authorize($email, $encryptpass, true);
          } else {
             throw new Exception(ERROR_LOGIN);
@@ -126,7 +126,7 @@
          }
 
          $user = new UserDB($email);
-         $user->password = Encryption::encryptPass($email, $newPass, $user->salt);
+         $user->password = Encryption::encryptPass($newPass, $user->salt);
          $user->update();
 
          self::authorize($email, $user->password, true);
@@ -138,8 +138,8 @@
          if (!$user->isExist) throw new Exception(INCORRECT_MAIL);
 
          global $data_h;
-         $new_pass            = $data_h->createSalt(10);
-         $user->password      = Encryption::encryptPass($email, $new_pass, $user->salt);
+         $new_pass            = Encryption::generateRandomString(10);
+         $user->password      = Encryption::encryptPass($new_pass, $user->salt);
          $user->verification  = false;
          $user->register_date = time();
          $user->update();
