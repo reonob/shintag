@@ -36,5 +36,4 @@
    }
 
    $db = new DBConnect();
-   $db_link = new DBConnect();
 ?>
