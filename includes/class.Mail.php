@@ -2,6 +2,7 @@
    class Mail
    {
       private $site = 'kolesa.su.com';
+      private $activation_url = '/includes/activation.php';
       private $isLocalhost = true;
 
       public function setIsLocalhost($isLocalhost)
@@ -37,7 +38,7 @@
 
          $date = time();
          $subject = "Активация аккаунта";
-         $message = $this->site.'/includes/activation.php?type=activation&hash='.$hash.'&email='.$email;
+         $message = $this->site.$this->activation_url.'?type=activation&hash='.$hash.'&email='.$email;
          $header = 'Content-type:text/html; charset = utf-8';
 
          if ($this->isLocalhost) {
@@ -53,8 +54,8 @@
          $hash = $this->getUniqueSignature($newEmail, $user->login, $user->password);
 
          $date = time();
-         $subject = "Подтвердение изменения e-mail.";
-         $message = $this->site.'/includes/activation.php?type=change_email&hash='.$hash
+         $subject = "Подтверждение изменения e-mail.";
+         $message = $this->site.$this->activation_url.'?type=change_email&hash='.$hash
                    .'&old_email='.$oldEmail.'&new_email='.$newEmail;
          $header = 'Content-type:text/html; charset = utf-8';
 
@@ -70,9 +71,9 @@
          $user = new UserDB($email);
          $hash = $this->getUniqueSignature($email, $user->login, $user->password);
          $date = time();
-         $subject = "Смена e-mail";
+         $subject = "Забыли пароль";
          $message =
-            'New password:'."$pass\n".$this->site.'/includes/activation.php?type=activation&subj=forgotten&hash='
+            'New password:'."$pass\n".$this->site.$this->activation_url.'?type=activation&subj=forgotten&hash='
            .$hash.'&email='.$email;
          $header = 'Content-type:text/html; charset = utf-8';
          if ($this->isLocalhost) {
