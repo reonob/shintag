@@ -1,5 +1,4 @@
 ﻿<?php
-
    class Mail
    {
       private $site = 'kolesa.su.com';

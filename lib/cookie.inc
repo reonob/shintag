@@ -2,6 +2,7 @@
    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/connect.php';
    require_once $_SERVER['DOCUMENT_ROOT'] . '/lib/encryption.inc';
    require_once $_SERVER['DOCUMENT_ROOT'] . '/lib/exception.inc';
+
    class Cookie
    {
       //cookie data

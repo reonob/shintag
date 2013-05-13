@@ -136,6 +136,7 @@
       {
          $user = new UserDB($email);
          if (!$user->isExist) throw new Exception(INCORRECT_MAIL);
+
          global $data_h;
          $new_pass            = $data_h->createSalt(10);
          $user->password      = Encryption::encryptPass($email, $new_pass, $user->salt);

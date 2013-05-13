@@ -3,7 +3,6 @@
    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/class.Activation.php';
    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/connect.php';
 
-
    if ((empty($_GET['hash']) || empty($_GET['email'])) && $_GET['type'] != 'change_email') {
       header("Location: /includes/registration.php");
    }
