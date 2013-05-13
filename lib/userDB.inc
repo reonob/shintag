@@ -18,7 +18,7 @@
       public static function findByEmail($email)
       {
          global $db;
-         $data = $db->query('SELECT id from users WHERE email = ?', array($email));
+         $data = $db->query('SELECT id FROM users WHERE email = ?', array($email));
          return new UserDB(!empty($data) ? $email : null);
       }
 
