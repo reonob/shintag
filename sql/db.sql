@@ -1,9 +1,10 @@
-CREATE DATABASE 8cost DEFAULT CHARSET utf8;
+CREATE DATABASE shintag DEFAULT CHARSET utf8;
 
-use 8cost;
+use shintag;
 
 GRANT SELECT, INSERT, UPDATE, DELETE
-ON 8cost.*
+ON shintag.*
+>>>>>>> origin/master
 TO smite@localhost IDENTIFIED BY 'smite107';
 
 CREATE TABLE users (

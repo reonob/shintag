@@ -1,37 +1,48 @@
 <?php
 
-   class dataHandling
+   class DataHandling
    {
-      public function isFilled_Out($form_vars)
+      public function validateForm($form_vars, $message = ERROR_FORM_FILL)
       {
+         $result = true;
          foreach ($form_vars as $key => $value) {
-            if (!isset($key) || ($value == '')) {
-               return false;
+            if (!isset($key) || empty($value)) {
+               $result = false;
             }
          }
-         return true;
+         if (!count($form_vars) || !$result) throw new Exception($message);
+         return $this;
       }
 
-      public function isValid_Email($mail)
+      public function validateEmail($mail, $message = INCORRECT_MAIL)
       {
-         return preg_match('/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/', $mail);
-      }
-
-      public function createEncryptPass($email, $pass, $salt)
-      {
-         return md5($salt.md5($pass.$salt).$email);
-      }
-
-      public function createSalt($len = 7)
-      {
-         $pattern = "abcdefghiklmnopqrstvwxyzABCDEFGHIKLMNOPQRSTVWXYZ0123456789";
-         $pattern_len = strlen($pattern);
-         mt_srand((int) (microtime(true) * 0xFFFF));
-         $salt = '';
-         for ($i = 0; $i < $len; $i++) {
-            $salt .= $pattern[mt_rand() % $pattern_len];
+         if (!preg_match('/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/', $mail)) {
+            throw new Exception($message);
          }
-         return $salt;
+         return $this;
+      }
+
+      public function validateLogin($login, $message = ERROR_LOGIN_LEN)
+      {
+         if (strlen($login) < LOGIN_LEN) throw new Exception($message);
+         return $this;
+      }
+
+      public function validatePassword($pass, $message = ERROR_PASS_LEN)
+      {
+         if (strlen($pass) < PASS_LEN) throw new Exception($message);
+         return $this;
+      }
+
+      public function validateRepeatPasswords($pass1, $pass2, $message = ERROR_OLD_NEW_PASS)
+      {
+         if ($pass1 != $pass2) throw new Exception($message);
+         return $this;
+      }
+
+      function unixToMySQL($timestamp)
+      {
+         return date('Y-m-d H:i:s', $timestamp);
       }
 
    }

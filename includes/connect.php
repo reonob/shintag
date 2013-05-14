@@ -22,5 +22,5 @@
 		}
    }
 
-   $db_link = new DBConnect(DB_dsn, DB_user, DB_pass);
+   $db = new DBConnect(DB_dsn, DB_user, DB_pass);
 ?>

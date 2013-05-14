@@ -3,7 +3,7 @@
 {block name='reg_auth_form'}
   <p>Пожалуйста, войдите в свой аккаунт, или, если у вас его еще нет, то пройдите <a href="registration.php">моментальную регистрацию</a>!</p>
   {$errorMsg|default:''}
-  <form id="login_form" name="login_form" action="/includes/login.php" method="post">
+  <form id="login_form" name="login_form" action="/includes/login.php?originating_uri={$fromUri}" method="post">
     <div>
       <label for="mail">E-mail:</label>
       <input type="email" name="email" id="mail" value='{$email}' />

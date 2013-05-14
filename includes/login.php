@@ -2,7 +2,8 @@
    require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/container.php');
    require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/connect.php');
 
-   if ($user->checkUser()) {
+   $fromUri = isset($_GET['originating_uri']) ? $_GET['originating_uri'] : '/includes/my_account.php';
+   if (Authentification::checkCredentials()) {
       header("Location: /includes/my_account.php");
    }
    $isException = false;
@@ -23,11 +24,11 @@
                throw new Exception(ERROR_CAPTCHA);
             }
          }
-         if ((!$data_h->isFilled_Out($post)) || (!$data_h->isValid_Email($email)) || (strlen($pass) < 6)) {
-            throw new Exception(ERROR_LOGIN);
-         }
-         $user->login($email, $pass);
-         header("Location: /includes/my_account.php");
+         $data_h->validateForm($post, ERROR_LOGIN)
+                ->validateEmail($email, ERROR_LOGIN)
+                ->validatePassword($pass, ERROR_LOGIN);
+         AuthorizedUser::login($email, $pass);
+         header("Location: $fromUri");
       } catch (Exception $e) {
          $isException = true;
          $errorMsg = '<p style="font-weight: bold">'.$e->getMessage().'</p>';
@@ -36,9 +37,10 @@
    if (isset($_SESSION['attempts']) && $_SESSION['attempts'] >= NUMBER_OF_LOGIN_ATTEMPTS) {
       $smarty->assign('hasCaptcha', 'true');
    }
-   $smarty->assign('email', isset($email) ? $email : '');
-   $smarty->assign('captcha_img_url', '/kcaptcha/captcha.php?'.session_name().'='.session_id());
-   $smarty->assign('errorMsg', isset($errorMsg) ? $errorMsg : false);
-   $smarty->display('login.tpl');
+   $smarty->assign('email', isset($email) ? $email : '')
+          ->assign('fromUri', $fromUri)
+          ->assign('captcha_img_url', '/kcaptcha/captcha.php?'.session_name().'='.session_id())
+          ->assign('errorMsg', isset($errorMsg) ? $errorMsg : false)
+          ->display('login.tpl');
    unset($_SESSION['captcha_keystring']);
 ?>

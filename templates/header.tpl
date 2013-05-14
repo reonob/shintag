@@ -9,7 +9,7 @@
 		</nav>
 		<nav class="right">
 			<ul>
-			{if isset($isLogin) && $isLogin}
+			{if $isLogin|default:false}
 				<li><a href="/includes/my_account.php">Мой аккаунт</a></li>
 				<li id="logout"><a href="">Выйти</a></li>
 			{else}

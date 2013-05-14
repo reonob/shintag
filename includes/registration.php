@@ -1,6 +1,7 @@
 <?php
-   require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/container.php');
-   require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/connect.php');
+   require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/container.php';
+   require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/connect.php';
+   require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/class.Mail.php';
 
    $isException = false;
    if (isset($_POST['submit'])) {
@@ -10,15 +11,14 @@
       $pass   = $post['pass'];
       $repass = $post['repass'];
       try {
-         if ((!$data_h->isFilled_Out($post))||(!$data_h->isValid_Email($email))
-               ||($pass != $repass)||(strlen($pass) <= 5) || (strlen($login) < 5)) {
-            // throw new Exception('Здесь ошибка, просто редирект на error.php закомментен');
-            header("Location: /includes/error.php");
-         }
-         $user->register($login, $email, $pass);
-         include_once($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Mail.php');
+         $data_h->validateForm($post)
+                ->validateEmail($email)
+                ->validateLogin($login)
+                ->validateRepeatPasswords($pass, $repass)
+                ->validatePassword($pass);
+         Registration::register($email, $pass, $login);
          $mail = new Mail();
-         $mail->sendActivationMail($email, $login);
+         $mail->sendActivationMail($email);
          $_SESSION['isAdded'] = true;
          header("Location: /includes/registration.php");
       } catch (Exception $e) {
@@ -26,9 +26,9 @@
          $errorMsg = '<p style="font-weight: bold">'.$e->getMessage().'</p>';
       }
    }
-   $smarty->assign('login', isset($login) ? $login : '');
-   $smarty->assign('email', isset($email) ? $email : '');
-   $smarty->assign('errorMsg', isset($errorMsg) ? $errorMsg : false);
-   $smarty->assign('isAdded', isset($_SESSION['isAdded']) ? $_SESSION['isAdded'] : false);
-   $smarty->display('registration.tpl');
+   $smarty->assign('login', isset($login) ? $login : '')
+          ->assign('email', isset($email) ? $email : '')
+          ->assign('errorMsg', isset($errorMsg) ? $errorMsg : false)
+          ->assign('isAdded', isset($_SESSION['isAdded']) ? $_SESSION['isAdded'] : false)
+          ->display('registration.tpl');
 ?>
