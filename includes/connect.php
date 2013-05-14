@@ -1,39 +1,26 @@
 <?php
-   require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/settings.php');
+   require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/user_consts.php');
 
-   class DBConnect
-   {
-
-      private $link;
-
-      function __construct()
-      {
-         global $settings;
-         $this->link = new PDO('mysql:host='.$settings->db->host.';dbname='.$settings->db->database,
-                               $settings->db->user,
-                               $settings->db->password);
-         $this->link->exec("SET CHARACTER SET utf8");
-      }
-
-      private function bindParams(&$h, $cols, $vals)
-      {
-         foreach ($cols as $k => $v) {
-            $h->bindValue(":$v", $vals[$v]);
-         }
-      }
-
-      public function query($query, $params = array(), $getResult = true)
-      {
-         $st = $this->link->prepare($query);
-         if (!$st->execute($params)) {
-            throw new Exception(ERROR_QUERY);
-         }
-         if ($getResult) {
-            return $st->fetchAll(PDO::FETCH_ASSOC);
-         }
-      }
-
+   class DBConnect {
+		function DBConnect($db_dsn, $db_user, $db_pass) {	
+			try {
+				$this->link = new PDO($db_dsn, $db_user, $db_pass);
+			} catch (PDOException $e) {
+				die('Подключение не удалось: ' . $e->getMessage());
+			}
+			$this->link->exec("SET CHARACTER SET utf8");
+		}
+		public function exec($query, $params = array()) {
+			$f = $this->query($query, $params);
+		}
+		public function query($query, $params = array()) {
+			$st = $this->link->prepare($query);
+			if (!$st->execute($params)) {
+				throw new Exception(ERROR_QUERY);
+			}
+			return $st->fetchAll(PDO::FETCH_ASSOC);
+		}
    }
 
-   $db_link = new DBConnect();
+   $db_link = new DBConnect(DB_dsn, DB_user, DB_pass);
 ?>

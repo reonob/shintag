@@ -49,69 +49,20 @@
 			<form id="filter1">
 				<div class="left">
 					<div class="long">
-						<div>
-							<label for="tyres_width">Ширина, см</label>
-							<select id="tyres_width" name="tyres_width">
-								<option>100</option>
-								<option>101</option>
-								<option>102</option>
-								<option>103</option>
-								<option>104</option>
-							</select>
-						</div>
-						<div>
-							<label for="tyres_height">Профиль, см</label>
-							<select id="tyres_height" name="tyres_height">
-								<option>95</option>
-								<option>101</option>
-								<option>102</option>
-								<option>103</option>
-								<option>104</option>
-							</select>
-						</div>
-						<div>
-							<label for="tyres_radius">Радиус, см</label>
-							<select id="tyres_radius" name="tyres_radius">
-								<option>44</option>
-								<option>101</option>
-								<option>102</option>
-								<option>103</option>
-								<option>104</option>
-							</select>
-						</div>
+						<label for="tyres_width">Размер, см</label>
+						{$select_tyres_width} / {$select_tyres_height} R {$select_tyres_radius}
 					</div>
-					<div>
-						<label for="tyres_rel">Остаток не менее, %</label>
-						<select id="tyres_rel" name="tyres_rel">
-							<option>98</option>
-							<option>98.1</option>
-							<option>98.2</option>
-							<option>98.3</option>
-							<option>98.4</option>
-						</select>
+					<div class="long">
+						{$label_and_select_tyres_type}
+					</div>
+					<div class="long">
+						{$label_and_select_tyres_year}
 					</div>
 					<div>
 						<label for="tyres_photo">Фото</label>
 						<input type="checkbox" id="tyres_photo" name="tyres_photo">
 					</div>
 					<br />
-					<div class="long">
-						<label for="tyres_brand">Сезон</label>
-						<select id="tyres_brand" name="tyres_brand">
-							<option>Зима</option>
-							<option>Лето</option>
-						</select>
-					</div>
-					<div>
-						<label for="tyres_year">Год</label>
-						<select id="tyres_year" name="tyres_year">
-							<option>2013</option>
-							<option>2012</option>
-							<option>2011</option>
-							<option>2010</option>
-							<option>2009</option>
-						</select>
-					</div>
 					<div class="long">
 						<label for="tyres_min_price">Цена, руб</label>
 						<label for="tyres_min_price" class="inline">от</label>
@@ -128,6 +79,9 @@
 							<option>Binsitsi</option>
 							<option>Toru</option>
 						</select>
+					</div>
+					<div>
+						{$label_and_select_tyres_season}
 					</div>
 					<br />
 					<div class="long">
@@ -164,37 +118,45 @@
 			</form>
 			<form id="filter2" style="display: none">
 				<div class="left">
+					<div>
+						<label for="wheels_width">Ширина, см</label>
+						<select id="wheels_width" name="wheels_width">
+							<option>5.5</option>
+							<option>101</option>
+							<option>102</option>
+							<option>103</option>
+							<option>104</option>
+						</select>
+					</div>
+					<div>
+						<label for="wheels_height">Диаметр, см</label>
+						<select id="wheels_height" name="wheels_height">
+							<option>24</option>
+							<option>10</option>
+							<option>10</option>
+							<option>10</option>
+							<option>10</option>
+						</select>
+					</div>
+					<div>
+						<label for="wheels_diameter">Крепеж</label>
+						<select id="wheels_diameter" name="wheels_diameter">
+							<option>HolesxPCD</option>
+							<option>101</option>
+							<option>102</option>
+							<option>103</option>
+							<option>104</option>
+						</select>
+					</div>
 					<div class="long">
-						<div>
-							<label for="wheels_width">Ширина обода, см</label>
-							<select id="wheels_width" name="wheels_width">
-								<option>100</option>
-								<option>101</option>
-								<option>102</option>
-								<option>103</option>
-								<option>104</option>
-							</select>
-						</div>
-						<div>
-							<label for="wheels_height">Диаметр обода, см</label>
-							<select id="wheels_height" name="wheels_height">
-								<option>95</option>
-								<option>101</option>
-								<option>102</option>
-								<option>103</option>
-								<option>104</option>
-							</select>
-						</div>
-						<div>
-							<label for="wheels_diameter">Диаметр отверстий, см</label>
-							<select id="wheels_diameter" name="wheels_diameter">
-								<option>44</option>
-								<option>101</option>
-								<option>102</option>
-								<option>103</option>
-								<option>104</option>
-							</select>
-						</div>
+						<label for="wheels_year">Вылет</label>
+						<select id="wheels_year" name="wheels_year">
+							<option>52.5</option>
+							<option>2012</option>
+							<option>2011</option>
+							<option>2010</option>
+							<option>2009</option>
+						</select>
 					</div>
 					<div>
 						<label for="wheels_photo">Фото</label>
@@ -224,16 +186,6 @@
 						<input type="text" id="wheels_min_price" name="wheels_min_price" class="min" />
 						<label for="wheels_max_price" class="inline">до</label>
 						<input type="text" id="wheels_max_price" name="wheels_max_price" class="min" />
-					</div>
-					<div>
-						<label for="wheels_year">Вылет</label>
-						<select id="wheels_year" name="wheels_year">
-							<option>2013</option>
-							<option>2012</option>
-							<option>2011</option>
-							<option>2010</option>
-							<option>2009</option>
-						</select>
 					</div>
 					<br />
 					<div class="long">
@@ -403,193 +355,140 @@
 		</article>
 	</section>
 	<div class="catalog">
-		<ul class="prices">
-			<li>
-				<h2>BEST SELLERS - CAR TYRES</h2>
-				<ul>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im1.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im1.jpg" class="avatar">
-							<h1><a href="#">Michelin PILOT SPORTY Tube Type</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im1.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im1.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im1.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im1.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im1.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im1.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<h2>BEST SELLERS - CAR TYRES</h2>
-				<ul>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im2.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im2.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im2.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im2.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im2.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im2.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im2.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<h2>BEST SELLERS - CAR TYRES</h2>
-				<ul>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im1.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im1.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im1.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-					<li>
-						<article class="price">
-							<img src="/images/tyres/im1.jpg" class="avatar">
-							<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-							<span class="params">P 155/70R 13 75S</span>
-							<span class="price">3 412 $</span>
-							<div class="raiting"></div>
-						</article>
-					</li>
-				</ul>
-			</li>
-		</ul>
+		<h2>BEST SELLERS - CAR TYRES</h2>
+		<article class="price">
+			<img src="/images/tyres/im1.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im1.jpg" class="avatar">
+			<h1><a href="#">Michelin PILOT SPORTY Tube Type</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im1.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im1.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im1.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im1.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im1.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im1.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<h2>BEST SELLERS - CAR TYRES</h2>
+		<article class="price">
+			<img src="/images/tyres/im2.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im2.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im2.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im2.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im2.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im2.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im2.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im1.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im1.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im1.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
+		<article class="price">
+			<img src="/images/tyres/im1.jpg" class="avatar">
+			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+			<span class="params">P 155/70R 13 75S</span>
+			<span class="price">3 412 $</span>
+			<div class="raiting"></div>
+		</article>
 	</div>
 {/block}

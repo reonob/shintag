@@ -1,6 +1,27 @@
 <?php
-   function select_params($name, $id, $options, $multiple = 0, $disabled = 0, $class = '', $selected = array())
-   {
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/connect.php');
+	function get_select_from_table($db_link, $table_name, $class = '', $id = '') {
+		if ($id == '') {
+			$id = $table_name;
+		}
+		$options = $db_link->query('SELECT * FROM ' . $table_name . ' i ORDER BY i.id');
+		$result = '<select id="' . $id . '" name="' . $id . '" class="' . $class . '">';
+		foreach ($options as $option) {
+			$result .= '<option value="' . $option['id'] .'">' . $option['name'] . '</option>';
+		}
+		$result .= '</select>';
+		return $result;
+	}
+	 function get_label_and_select($db_link, $table_name, $rus_name, $select_class = '', $id = '', $label_class = '') {
+		if ($id == '') {
+			$id = $table_name;
+		}
+		$result = '<label for="' . $id . '" class="' . $label_class . '">' . $rus_name . '</label>';
+		$result .= get_select_from_table($db_link, $table_name, $select_class, $id);
+		return $result;
+	 }
+	/*
+   function select_params($name, $id, $options, $multiple = 0, $disabled = 0, $class = '', $selected = array()) {
       $new_options = array();
       for ($i = 0; $i < count($options); $i++) {
          $new_options[$options[$i]] = in_array($i, $selected) + 0;
@@ -15,17 +36,13 @@
          'class' => $class
       );
    }
-
-   function text_params($text)
-   {
+   function text_params($text) {
       return array(
          'type' => 'text',
          'text' => $text
       );
    }
-
-   function input_params($name, $id, $i_type = 'text', $class = '')
-   {
+   function input_params($name, $id, $i_type = 'text', $class = '') {
       return array(
          'type' => 'input',
          'name' => $name,
@@ -34,9 +51,7 @@
          'class' => $class
       );
    }
-
-   function slider_params($name, $id, $bot, $top, $class = '')
-   {
+   function slider_params($name, $id, $bot, $top, $class = '') {
       return array(
          'type' => 'slider',
          'name' => $name,
@@ -46,9 +61,7 @@
          'class' => $class
       );
    }
-
-   function special_params($special)
-   {
+   function special_params($special) {
       $arr_special = array(
          'prices_count' => 'create_prices_count',
          'price' => 'create_price',
@@ -63,9 +76,7 @@
       );
         return $arr_special[$special]();
    }
-
-   function button_params($name, $id, $class = '')
-   {
+   function button_params($name, $id, $class = '') {
       return array(
          'type' => 'button',
          'name' => $name,
@@ -73,83 +84,67 @@
          'class' => $class
       );
    }
-
-   function create_free_search()
-   {
+   function create_free_search() {
       return input_params('Свободный поиск', 'free_search', 'text');
    }
 
-   function create_prices_count()
-   {
+   function create_prices_count() {
       return slider_params('Количество цен', 'prices_count', 'от', 'до', 'count_slider');
    }
 
-   function create_price()
-   {
+   function create_price() {
       return slider_params('Цена', 'price', 'от', 'до', 'count_slider');
    }
 
-   function create_country()
-   {
+   function create_country() {
       return select_params('Страна', 'country', array('Первая категория', 'Вторая категория'), 1, 0);
    }
 
-   function create_city()
-   {
+   function create_city() {
       return select_params('Город', 'city', array('Первая категория', 'Вторая категория'), 1, 1);
    }
 
-   function create_category()
-   {
+   function create_category() {
       return select_params('Категория', 'category', array('Первая категория', 'Вторая категория'), 1, 0);
    }
 
-   function create_subcategory()
-   {
+   function create_subcategory() {
       return select_params('Подкатегория', 'subcategory', array('Первая категория', 'Вторая категория'), 1, 1);
    }
 
-   function create_shop()
-   {
+   function create_shop() {
       return select_params('Магазин', 'shop', array('Первая категория', 'Вторая категория'), 1, 0);
    }
 
-   function create_brand()
-   {
+   function create_brand() {
       return select_params('Производитель', 'brand', array('Первая категория', 'Вторая категория'), 1, 0);
    }
 
-   function create_find_button()
-   {
+   function create_find_button() {
       return button_params('Найти', 'find', 'ok blue_button');
    }
 
-   class Form
-   {
+   class Form {
       var $prefix;
       var $fields;
 
-      function Form($prefix)
-      {
+      function Form($prefix) {
          $this->prefix = $prefix;
          $this->fields = array();
       }
 
-      function set_prefix($prefix)
-      {
+      function set_prefix($prefix) {
          $this->prefix = $prefix;
       }
 
-      function add_fields()
-      {
+      function add_fields() {
          $args = func_get_args();
          foreach ($args as $params) {
             $this->fields[] = $params;
          }
       }
 
-      function get_form_text()
-      {
+      function get_form_text() {
          $result = '';
          foreach ($this->fields as $field) {
             switch ($field['type']) {
@@ -211,4 +206,5 @@
          return $result;
       }
    }
+   */
 ?>

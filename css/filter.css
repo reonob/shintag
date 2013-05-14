@@ -8,6 +8,8 @@
 */
 #filter {
 	margin-top: 40px;
+	color: white;
+	font-weight: bold;
 }
 #filter ul.buttons li {
 	display: inline-block;
@@ -58,10 +60,16 @@
 	font-size: 100%;
 	display: block;
 }
+#filter div.form form select:first-of-type {
+	margin-left: 0;
+}
+#filter div.form form select:last-of-type {
+	margin-right: 0;
+}
 #filter div.form form select {
 	height: 25px;
-	display: block;
-	margin-top: 5px;
+	display: inline-block;
+	margin: 5px 5px 0 5px;
 }
 #filter div.form form div.left, #filter div.form form div.right {
 	display: inline-block;
@@ -92,10 +100,10 @@
 	background-position: 0 -143px;
 }
 #filter div.form form div.right input.submit {
-	width: 100px;
+	width: 150px;
 	height: 60px;
 	border-radius: 10px;
-	background: #c30e18 url(/images/find.png) no-repeat;
+	background: #c30e18 url(/images/find.png);
 	cursor: pointer;
 	margin: 25px 0 0 0;
 	border: 0;
