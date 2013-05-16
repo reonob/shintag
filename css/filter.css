@@ -40,9 +40,6 @@
 #menu3:before {
 	background: url('/images/menu3.png');
 }
-#menu4:before {
-	background: url('/images/menu4.png');
-}
 #filter ul.buttons li.active {
 	background: url(/images/filter_bg.gif);
 }
@@ -140,4 +137,12 @@
 }
 #filter div.form form input.min {
 	width: 100px;
+}
+#filter div.right span.watch_all {
+	display: block;
+	text-align: center;
+	margin-top: 10px;
+}
+#filter div.right span.watch_all a {
+	color: #fee232;
 }

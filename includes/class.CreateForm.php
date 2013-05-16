@@ -1,23 +1,26 @@
 <?php
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/connect.php');
-	function get_select_from_table($db_link, $table_name, $class = '', $id = '') {
+	function get_select_from_table($db_link, $table_name, $fictive = false, $class = '', $id = '') {
 		if ($id == '') {
 			$id = $table_name;
 		}
 		$options = $db_link->query('SELECT * FROM ' . $table_name . ' i ORDER BY i.id');
 		$result = '<select id="' . $id . '" name="' . $id . '" class="' . $class . '">';
+		if ($fictive == true) {
+			$result .= '<option value="unset"></option>';
+		}
 		foreach ($options as $option) {
 			$result .= '<option value="' . $option['id'] .'">' . $option['name'] . '</option>';
 		}
 		$result .= '</select>';
 		return $result;
 	}
-	 function get_label_and_select($db_link, $table_name, $rus_name, $select_class = '', $id = '', $label_class = '') {
+	 function get_label_and_select($db_link, $table_name, $rus_name, $fictive, $select_class = '', $id = '', $label_class = '') {
 		if ($id == '') {
 			$id = $table_name;
 		}
 		$result = '<label for="' . $id . '" class="' . $label_class . '">' . $rus_name . '</label>';
-		$result .= get_select_from_table($db_link, $table_name, $select_class, $id);
+		$result .= get_select_from_table($db_link, $table_name, $fictive, $select_class, $id);
 		return $result;
 	 }
 	/*
