@@ -44,12 +44,25 @@
 	background: url(/images/filter_bg.gif);
 }
 #filter ul.buttons {
-	text-align: right;
+	text-align: center;
 }
 #filter div.form {
-	background: url(/images/tyre_bg.png) 100% 100% no-repeat,
-				url(/images/filter_bg.gif) 0 0 repeat;
-	padding: 15px;
+	padding: 15px 0 0 15px;
+	background: url(/images/filter_bg.gif) 0 0 repeat;
+}
+#filter div.form div.wrap {
+	width: 100%;
+	height: 100%;
+	padding-bottom: 15px;
+}
+#filter #filter1 div.wrap {
+	background: url(/images/bg1.png) 100% 100% no-repeat;
+}
+#filter #filter2 div.wrap {
+	background: url(/images/bg2.png) 100% 100% no-repeat;
+}
+#filter #filter3 div.wrap {
+	background: url(/images/bg3.png) 100% 100% no-repeat;
 }
 #filter div.form form label {
 	color: white;
@@ -80,7 +93,7 @@
 	position: absolute;
 	width: 113px;
 	height: 47px;
-	background: url(/images/tyre_sizes.png);
+	background: /*url(/images/tyre_sizes.png)*/;
 	right: -190px;
 	bottom: -149px;
 }
