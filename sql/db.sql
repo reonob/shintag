@@ -4,6 +4,7 @@ use shintag;
 
 GRANT SELECT, INSERT, UPDATE, DELETE
 ON shintag.*
+>>>>>>> origin/master
 TO smite@localhost IDENTIFIED BY 'smite107';
 
 CREATE TABLE users (

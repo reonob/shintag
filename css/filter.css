@@ -8,6 +8,8 @@
 */
 #filter {
 	margin-top: 40px;
+	color: white;
+	font-weight: bold;
 }
 #filter ul.buttons li {
 	display: inline-block;
@@ -38,19 +40,29 @@
 #menu3:before {
 	background: url('/images/menu3.png');
 }
-#menu4:before {
-	background: url('/images/menu4.png');
-}
 #filter ul.buttons li.active {
 	background: url(/images/filter_bg.gif);
 }
 #filter ul.buttons {
-	text-align: right;
+	text-align: center;
 }
 #filter div.form {
-	background: url(/images/tyre_bg.png) 100% 100% no-repeat,
-				url(/images/filter_bg.gif) 0 0 repeat;
-	padding: 15px;
+	padding: 15px 0 0 15px;
+	background: url(/images/filter_bg.gif) 0 0 repeat;
+}
+#filter div.form div.wrap {
+	width: 100%;
+	height: 100%;
+	padding-bottom: 15px;
+}
+#filter #filter1 div.wrap {
+	background: url(/images/bg1.png) 100% 100% no-repeat;
+}
+#filter #filter2 div.wrap {
+	background: url(/images/bg2.png) 100% 100% no-repeat;
+}
+#filter #filter3 div.wrap {
+	background: url(/images/bg3.png) 100% 100% no-repeat;
 }
 #filter div.form form label {
 	color: white;
@@ -58,10 +70,16 @@
 	font-size: 100%;
 	display: block;
 }
+#filter div.form form select:first-of-type {
+	margin-left: 0;
+}
+#filter div.form form select:last-of-type {
+	margin-right: 0;
+}
 #filter div.form form select {
 	height: 25px;
-	display: block;
-	margin-top: 5px;
+	display: inline-block;
+	margin: 5px 5px 0 5px;
 }
 #filter div.form form div.left, #filter div.form form div.right {
 	display: inline-block;
@@ -75,7 +93,7 @@
 	position: absolute;
 	width: 113px;
 	height: 47px;
-	background: url(/images/tyre_sizes.png);
+	background: /*url(/images/tyre_sizes.png)*/;
 	right: -190px;
 	bottom: -149px;
 }
@@ -92,10 +110,10 @@
 	background-position: 0 -143px;
 }
 #filter div.form form div.right input.submit {
-	width: 100px;
+	width: 150px;
 	height: 60px;
 	border-radius: 10px;
-	background: #c30e18 url(/images/find.png) no-repeat;
+	background: #c30e18 url(/images/find.png);
 	cursor: pointer;
 	margin: 25px 0 0 0;
 	border: 0;
@@ -132,4 +150,12 @@
 }
 #filter div.form form input.min {
 	width: 100px;
+}
+#filter div.right span.watch_all {
+	display: block;
+	text-align: center;
+	margin-top: 10px;
+}
+#filter div.right span.watch_all a {
+	color: #fee232;
 }

@@ -20,25 +20,4 @@
          $this->assign('app_name', 'shintag');
       }
    }
-
-   class DBSettings
-   {
-      public $host = "localhost";
-      public $user = "smite";
-      public $password = "smite107";
-      public $database = "shintag";
-      public $encode = "utf8";
-   }
-
-   class Settings
-   {
-      public $db;
-
-      function __construct()
-      {
-         $this->db = new DBSettings();
-      }
-   }
-
-   $settings = new Settings();
 ?>
