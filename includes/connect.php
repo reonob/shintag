@@ -2,7 +2,7 @@
    require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/user_consts.php');
 
    class DBConnect {
-		function DBConnect($db_dsn, $db_user, $db_pass) {	
+		function DBConnect($db_dsn, $db_user, $db_pass) {
 			try {
 				$this->link = new PDO($db_dsn, $db_user, $db_pass);
 			} catch (PDOException $e) {
