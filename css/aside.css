@@ -10,6 +10,23 @@
 aside {
 	float: left;
 }
+aside h1 {
+	font-weight: bold;
+	font-size: 120%;
+	padding-bottom: 5px;
+	margin-top: 7px;
+}
+#input_find {
+	width: 185px;
+}
+#input_find_button {
+	width: 25px;
+	height: 25px;
+	background: #c30e18 url(/images/find_icon.png) 3px 4px no-repeat;
+	position: relative;
+	top: -4px;
+	left: -1px;
+}
 #search_filter label {
 	display: block;
 	font-weight: bold;
@@ -26,12 +43,17 @@ aside {
 #search_filter input {
 	border: 1px #888 solid;
 	height: 23px;
+	padding: 0 5px;
 }
 #search_filter input.min {
 	width: 75px;
 }
 #search_filter select.min {
 	width: auto;
+}
+#search_filter button.red_button {
+	display: block;
+	margin: 7px auto;
 }
 #categories {
 	font-size: 90%;

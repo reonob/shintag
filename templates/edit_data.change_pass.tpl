@@ -15,6 +15,6 @@
     <td><input type="password" id="rep_pass" name="rep_pass" /></td>
   </tr>
   <tr>
-    <td colspan="2" class="buttons"><button id="send_data" class="blue_button" name="submit" value="submit">Применить</button></td>
+    <td colspan="2" class="buttons"><button id="send_data" class="red_button" name="submit" value="submit">Применить</button></td>
   </tr>
 </table>

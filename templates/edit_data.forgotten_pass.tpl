@@ -13,7 +13,7 @@
       <td><input type="mail" id="email" name="email" /></td>
     </tr>
     <tr>
-      <td colspan="2" class="buttons"><button id="send_data" class="blue_button" name="submit" value="submit">Отправить</button></td>
+      <td colspan="2" class="buttons"><button id="send_data" class="red_button" name="submit" value="submit">Отправить</button></td>
     </tr>
   </table>
 {/if}
