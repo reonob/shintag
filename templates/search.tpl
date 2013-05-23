@@ -3,6 +3,7 @@
   <link href="/css/search.css" media="all" rel="stylesheet" />
   <link href="/css/prices.css" media="all" rel="stylesheet" />
   <link href="/css/aside.css" media="all" rel="stylesheet" />
+  <link href="/css/top_head.css" media="all" rel="stylesheet" />
   <script src="/js/dropdown_blocks.js"></script>
   <script>
 	$(function(){
@@ -101,17 +102,15 @@
 				<option>2010</option>
 				<option>2009</option>
 			</select>
+			<label>Продавец</label>
+			<ul id="saler">
+				<li><input type="checkbox" value="1" id="saler1" checked="checked" name="saler" /><label for="saler1">Частный продавец</label></li>
+				<li><input type="checkbox" value="2" id="saler2" checked="checked" name="saler" /><label for="saler2">Онлайн-магазин</label></li>
+			</ul>
 			<label for="tyres_photo">Фото</label>
 			<input type="checkbox" id="tyres_photo" name="tyres_photo" checked="checked" />
 			<button class="red_button">Найти</button>
 		</form>
-		<section id="saler">
-			<h1>Продавец</h1>
-			<ul>
-				<li><a href="#">Частный продавец</a></li>
-				<li><a href="#">Онлайн-магазин</a></li>
-			</ul>
-		</section>
 		<section id="categories">
 			<ul>
 				<li>
@@ -139,62 +138,93 @@
 			</ul>
 		</section>
 	</aside>
-	<div class="catalog">
-		<article class="price">
-			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
-			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-			<span class="params">P 155/70R 13 75S</span>
-			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
-		</article>
-		<article class="price">
-			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
-			<h1><a href="#">Michelin PILOT SPORTY Tube Type</a></h1>
-			<span class="params">P 155/70R 13 75S</span>
-			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
-		</article>
-		<article class="price">
-			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
-			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-			<span class="params">P 155/70R 13 75S</span>
-			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
-		</article>
-		<article class="price">
-			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
-			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-			<span class="params">P 155/70R 13 75S</span>
-			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
-		</article>
-		<article class="price">
-			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
-			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-			<span class="params">P 155/70R 13 75S</span>
-			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
-		</article>
-		<article class="price">
-			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
-			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-			<span class="params">P 155/70R 13 75S</span>
-			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
-		</article>
-		<article class="price">
-			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
-			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-			<span class="params">P 155/70R 13 75S</span>
-			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
-		</article>
-		<article class="price">
-			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
-			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
-			<span class="params">P 155/70R 13 75S</span>
-			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
-		</article>
+	<div id="column_center">
+		<div id="top_head">
+			<h2>Всего найдено объявлений (702)</h2>
+			<a href="#" class="dark_button" id="show_on_map">Показать на карте</a>
+		</div>
+		<h1 id="settings_prices" class="after_arrow dropdown_head my_ads">Настройки</h1>
+		<div class="dropdown_block">
+			<form id="settings_form" name="settings_form">
+			  <label for="set_auto">Автопрокрутка</label>
+			  <input type="checkbox" name="set_auto" id="set_auto" />
+			  <label for="set_num">Показывать по</label>
+			  <select name="set_num" id="set_num">
+				<option value="1">20</option>
+				<option value="2">50</option>
+				<option value="3">75</option>
+			  </select>
+			  <label for="set_currency">Цены</label>
+			  <select name="set_currency" id="set_currency">
+				<option value="1">в рублях</option>
+				<option value="2">в долларах</option>
+				<option value="3">в юанях</option>
+			  </select>
+			</form>
+		</div>
+		<ul class="catalog_menu">
+			<li><a href="#" class="active">Шины</a></li>
+			<li><a href="#">Диски</a></li>
+			<li><a href="#">Аксессуары</a></li>
+			<li><a href="#">Услуги</a></li>
+		</ul>
+		<div class="catalog">
+			<article class="price">
+				<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
+				<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+				<span class="params">P 155/70R 13 75S</span>
+				<span class="price">3 412 $</span>
+				<div class="raiting"></div>
+			</article>
+			<article class="price">
+				<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
+				<h1><a href="#">Michelin PILOT SPORTY Tube Type</a></h1>
+				<span class="params">P 155/70R 13 75S</span>
+				<span class="price">3 412 $</span>
+				<div class="raiting"></div>
+			</article>
+			<article class="price">
+				<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
+				<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+				<span class="params">P 155/70R 13 75S</span>
+				<span class="price">3 412 $</span>
+				<div class="raiting"></div>
+			</article>
+			<article class="price">
+				<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
+				<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+				<span class="params">P 155/70R 13 75S</span>
+				<span class="price">3 412 $</span>
+				<div class="raiting"></div>
+			</article>
+			<article class="price">
+				<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
+				<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+				<span class="params">P 155/70R 13 75S</span>
+				<span class="price">3 412 $</span>
+				<div class="raiting"></div>
+			</article>
+			<article class="price">
+				<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
+				<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+				<span class="params">P 155/70R 13 75S</span>
+				<span class="price">3 412 $</span>
+				<div class="raiting"></div>
+			</article>
+			<article class="price">
+				<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
+				<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+				<span class="params">P 155/70R 13 75S</span>
+				<span class="price">3 412 $</span>
+				<div class="raiting"></div>
+			</article>
+			<article class="price">
+				<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
+				<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
+				<span class="params">P 155/70R 13 75S</span>
+				<span class="price">3 412 $</span>
+				<div class="raiting"></div>
+			</article>
+		</div>
 	</div>
 {/block}

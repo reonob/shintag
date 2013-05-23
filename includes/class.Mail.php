@@ -3,7 +3,7 @@
    {
       private $site = 'kolesa.su.com';
       private $activation_url = '/includes/activation.php';
-      private $isLocalhost = true;
+      private $isLocalhost = false;
 
       public function setIsLocalhost($isLocalhost)
       {

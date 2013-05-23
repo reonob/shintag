@@ -132,6 +132,12 @@ button {
 	padding: 5px 18px;
 	font-size: 100%;
 }
+.green_button {
+	background: green;
+	color: white;
+	padding: 5px 18px;
+	font-size: 100%;
+}
 .after_arrow span {
 	width: 8px;
 	height: 7px;

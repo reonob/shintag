@@ -6,6 +6,8 @@
 	#c30e18 - красный
 */
 
-div.catalog {
-	margin-left: 280px;
+
+#column_center {
+	width: 70%;
+	margin: 0 10% 0 25%;
 }

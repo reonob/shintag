@@ -27,6 +27,25 @@ aside h1 {
 	top: -4px;
 	left: -1px;
 }
+#search_filter {
+	margin-bottom: 30px;
+}
+#saler {
+	margin: 10px 0;
+}
+#saler li {
+	margin-top: 5px;
+}
+#saler li label {
+	font-weight: normal;
+	display: inline-block;
+	margin: 0;
+}
+#saler li input[type=checkbox] {
+	display: inline-block;
+	margin: 0 7px 0 0;
+	height: auto;
+}
 #search_filter label {
 	display: block;
 	font-weight: bold;

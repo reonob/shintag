@@ -1,0 +1,43 @@
+#show_on_map {
+	background-image: url('../images/map.png');
+	background-repeat: no-repeat;
+	background-position: right center;
+	padding-right: 25px !important;
+	padding: 7px 10px;
+	vertical-align: top;
+	margin-left: 5px;
+}
+#settings_prices {
+	display: inline-block;
+	float: right;
+	margin-bottom: 0px;
+	font-size: 150% !important;
+	font-weight: bold;
+	padding-top: 10px;
+}
+ul.catalog_menu {
+	display: block;
+	margin: 15px 0 10px;
+}
+ul.catalog_menu li {
+	display: inline-block;
+	margin-right: 7px;
+}
+ul.catalog_menu li a {
+	background: #c30e18;
+	color: white;
+	text-decoration: none;
+	padding: 5px 7px;
+}
+ul.catalog_menu li a:hover, ul.catalog_menu li a.active {
+	background: #1b1b1f;
+}
+#top_head h2 {
+	font-size: 150%;
+	font-weight: bold;
+	display: inline-block;
+}
+#top_head {
+	display: inline-block;
+	margin-bottom: 10px;
+}
