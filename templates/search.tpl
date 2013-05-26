@@ -1,4 +1,4 @@
-{extends file='page.tpl'}
+{extends file='page.header_find.tpl'}
 {block name='links'}
   <link href="/css/search.css" media="all" rel="stylesheet" />
   <link href="/css/prices.css" media="all" rel="stylesheet" />
@@ -16,14 +16,7 @@
 	});
   </script>
 {/block}
-{block name='div.main'}
-    <form id="main_form" name="main_form" method="get" action="/includes/search.php" onsubmit="">
-		<a href="/" id="logo_min"><img src="/images/logo_min.png" /></a>
-		<div id="form_block" class="top_pages">
-			<div><input type="text" id="search_input" name="search_input" autofocus placeholder="Например: iphone5 32gb" /></div>
-			<div><button id="search_button" class="find">Найти</button></div>
-		</div>
-    </form>
+{block name='div.main' append}
 	<aside>
 		<form id="search_filter">
 			<label for="tyres_width">Размер, см</label>
@@ -33,14 +26,14 @@
 				<option>102</option>
 				<option>103</option>
 				<option>104</option>
-			</select> / 
+			</select> /
 			<select id="tyres_height" name="tyres_height" class="min">
 				<option>95</option>
 				<option>101</option>
 				<option>102</option>
 				<option>103</option>
 				<option>104</option>
-			</select> R 
+			</select> R
 			<select id="tyres_radius" name="tyres_radius" class="min">
 				<option>44</option>
 				<option>101</option>

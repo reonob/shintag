@@ -47,7 +47,7 @@
 		</ul>
 		<div class="form">
 			<form id="filter1">
-				<div class="wrap"> 
+				<div class="wrap">
 					<div class="left">
 						<div class="long">
 							<label for="tyres_width">Размер, см</label>
@@ -316,7 +316,7 @@
 		</section>
 		<section id="forum">
 			<h1>Сегодня на форуме</h1>
-			<ul>	
+			<ul>
 				<li><a href="#">Летние шины по супер-ценам в компании "РОСА. Шины, Диски"</a></li>
 				<li><a href="#">Bridgestone S322 Tubeless</a></li>
 				<li><a href="#">Огромный выбор дисков "Sakura wheels"</a></li>
