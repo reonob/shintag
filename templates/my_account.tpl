@@ -1,10 +1,10 @@
 {extends file='my_acc.base.tpl'}
 {block name='title' append} - Учетная запись{/block}
 {block name='top_menu'}
-  <li class="active">Учетная запись</li>
-  <li><a href="/includes/my_add_ad.php">Добавить объявления</a></li>
-  <li><a href="/includes/my_favourite.php">Избранное</a></li>
-  <li><a href="/includes/my_money.php">Управление счетом</a></li>
+<li class="active">Учетная запись</li>
+<li><a href="/includes/my_add_ad.php">Добавить объявления</a></li>
+<li><a href="/includes/my_favourite.php">Избранное</a></li>
+<li><a href="/includes/my_money.php">Управление счетом</a></li>
 {/block}
 {block name='content_wrap'}
 <section id="person_settings">
