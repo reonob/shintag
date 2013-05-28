@@ -1,30 +1,28 @@
-{extends file='my_acc.2column.base.tpl'}
+{extends file='my_acc.base.tpl'}
 {block name='title' append} - Учетная запись{/block}
 {block name='top_menu'}
-  <li><a href="/includes/my_account.php">Учетная запись</a></li>
-  <li><a href="/includes/my_add_ad.php">Добавить объявления</a></li>
-  <li class="active">Избранное</li>
-  <li><a href="/includes/my_money.php">Управление счетом</a></li>
+<li><a href="/includes/my_account.php">Учетная запись</a></li>
+<li><a href="/includes/my_add_ad.php">Добавить объявления</a></li>
+<li class="active">Избранное</li>
+<li><a href="/includes/my_money.php">Управление счетом</a></li>
 {/block}
-{block name='top_part'}
-	<section id="favourite_shops">
-		<h1>Избранные продавцы</h1>
-		<table>
-			<tr>
-				<td><a href="#">Amazon</a></td><td class="about">Клевые шины</td><td><button class="edit"></button><button class="delete"></button></td>
-			</tr><tr>
-				<td><a href="#">Bridgestone</a></td><td class="about">Нужно обязательно купить те шины для тойоты Нужно обязательно купить те шины для тойоты Нужно обязательно купить те шины для тойоты</td><td><button class="edit"></button><button class="delete"></button></td>
-			</tr><tr>
-				<td><a href="#">Md_tyres</a></td><td class="about">Супер крутой</td><td><button class="edit"></button><button class="delete"></button></td>
-			</tr><tr>
-				<td><a href="#">WheelsMastaz</a></td><td class="about"></td><td><button class="edit"></button><button class="delete"></button></td>
-			</tr><tr>
-				<td><a href="#">Anya</a></td class="about"><td>Хочу эти диски завтра в понедельник</td><td><button class="edit"></button><button class="delete"></button></td>
-			</tr>
-		</table>
-	</section>
-{/block}
-{block name='left_column' append}
+{block name='content_wrap'}
+<section id="favourite_shops">
+	<h1>Избранные продавцы</h1>
+	<table>
+		<tr>
+			<td><a href="#">Amazon</a></td><td class="about">Клевые шины</td><td><button class="edit"></button><button class="delete"></button></td>
+		</tr><tr>
+			<td><a href="#">Bridgestone</a></td><td class="about">Нужно обязательно купить те шины для тойоты Нужно обязательно купить те шины для тойоты Нужно обязательно купить те шины для тойоты</td><td><button class="edit"></button><button class="delete"></button></td>
+		</tr><tr>
+			<td><a href="#">Md_tyres</a></td><td class="about">Супер крутой</td><td><button class="edit"></button><button class="delete"></button></td>
+		</tr><tr>
+			<td><a href="#">WheelsMastaz</a></td><td class="about"></td><td><button class="edit"></button><button class="delete"></button></td>
+		</tr><tr>
+			<td><a href="#">Anya</a></td class="about"><td>Хочу эти диски завтра в понедельник</td><td><button class="edit"></button><button class="delete"></button></td>
+		</tr>
+	</table>
+</section>
 	<aside>
 		<form id="search_filter">
 			<label for="input_find">Поиск по избранному</label>
@@ -38,14 +36,14 @@
 					<option>102</option>
 					<option>103</option>
 					<option>104</option>
-				</select> / 
+				</select> /
 				<select id="tyres_height" name="tyres_height" class="min">
 					<option>95</option>
 					<option>101</option>
 					<option>102</option>
 					<option>103</option>
 					<option>104</option>
-				</select> R 
+				</select> R
 				<select id="tyres_radius" name="tyres_radius" class="min">
 					<option>44</option>
 					<option>101</option>
@@ -134,8 +132,6 @@
 			</div>
 		</form>
 	</aside>
-{/block}
-{block name='center_column'}
 	<div id="top_head" class="my_ads">
 		<h2>Всего добавлено объявлений (702)</h2>
 		<a href="#" class="dark_button" id="show_on_map">Показать на карте</a>

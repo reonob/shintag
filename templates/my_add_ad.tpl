@@ -1,4 +1,4 @@
-{extends file='my_acc.1column.base.tpl'}
+{extends file='my_acc.base.tpl'}
 {block name='title' append} - Добавить объявления{/block}
 {block name='links' append}
 	<script>
@@ -17,8 +17,7 @@
   <li><a href="/includes/my_favourite.php">Избранное</a></li>
   <li><a href="/includes/my_money.php">Управление счетом</a></li>
 {/block}
-{block name='center_column_attr'} class="once"{/block}
-{block name='center_column'}
+{block name='content_wrap'}
   <section id="add_from_excel">
     <form id="add_from_excel_form">
       <h1 class="after_arrow dropdown_head">Загрузить из Excel</h1>

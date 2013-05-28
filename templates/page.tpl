@@ -11,7 +11,7 @@
 		{include file='header.tpl'}
 		<div id="main">
 			<div id="center_block">
-				{block name='div.main'}{/block}
+			{block name='div.main'}{/block}
 			</div>
 		</div>
 	</div>
