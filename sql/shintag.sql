@@ -10,7 +10,7 @@ TO smite@localhost IDENTIFIED BY 'smite107';
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 26 2013 г., 16:30
+-- Время создания: Июн 05 2013 г., 17:15
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -73,6 +73,46 @@ CREATE TABLE IF NOT EXISTS `product_state` (
 INSERT INTO `product_state` (`id`, `name`) VALUES
 (2, 'Б/У'),
 (1, 'Новое');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tyres_ads`
+--
+
+CREATE TABLE IF NOT EXISTS `tyres_ads` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) NOT NULL,
+  `width` int(11) NOT NULL,
+  `height` int(11) NOT NULL,
+  `radius` int(11) NOT NULL,
+  `season` int(11) DEFAULT NULL,
+  `year` int(11) DEFAULT NULL,
+  `brand` int(11) DEFAULT NULL,
+  `state` int(11) NOT NULL,
+  `count` int(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tyres_brand`
+--
+
+CREATE TABLE IF NOT EXISTS `tyres_brand` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `tyres_brand`
+--
+
+INSERT INTO `tyres_brand` (`id`, `name`) VALUES
+(1, 'fafafafafaf');
 
 -- --------------------------------------------------------
 
@@ -227,6 +267,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `verification` tinyint(1) NOT NULL,
   `salt` varchar(8) NOT NULL,
   `register_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `country_id` int DEFAULT 0,
+  `region_id` int DEFAULT 0,
+  `city_id` int DEFAULT 0,
+  `phone` varchar(20),
+  `skype` varchar(30),
+  `other_info` varchar(70),
+  `adress` varchar(70),
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;

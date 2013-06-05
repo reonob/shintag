@@ -9,7 +9,14 @@
       public $salt;
       public $email;
       public $login;
+      public $phone;
+      public $skype;
+      public $adress;
+      public $city_id;
       public $password;
+      public $region_id;
+      public $country_id;
+      public $other_info;
       public $verification;
       public $register_date;
 
@@ -34,7 +41,8 @@
          if (!$email) return;
          global $db;
          $query = 'SELECT id, email, login, password, verification, salt,
-                          UNIX_TIMESTAMP(register_date) as register_date
+                          UNIX_TIMESTAMP(register_date) as register_date,
+                          country_id, region_id, city_id, phone, skype, other_info, adress
                    FROM users WHERE email = ?';
          $data = $db->query($query, array($email));
          $this->email = $email;
