@@ -42,3 +42,23 @@ article.price span.price {
 	font-size: 110%;
 	color: #c30e18;
 }
+article div.buttons {
+	margin-top: 5px;
+}
+article div.buttons div.views {
+	font-weight: bold;
+	padding-left: 22px;
+	min-height: 15px;
+	padding-top: 1px;
+	background: url(/images/eye.png) left top no-repeat;
+	margin-right: 10px;
+	display: inline-block;
+}
+article div.buttons div.likes {
+	font-weight: bold;
+	padding-left: 19px;
+	min-height: 14px;
+	padding-top: 2px;
+	background: url(/images/like.png) left top no-repeat;
+	display: inline-block;
+}

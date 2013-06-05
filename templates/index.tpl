@@ -65,14 +65,7 @@
 						</div>
 						<br />
 						<div class="long">
-							<label for="tyres_brand">Производитель</label>
-							<select id="tyres_brand" name="tyres_brand" class="long">
-								<option>Mitsi</option>
-								<option>Suzaru</option>
-								<option>Yoamota</option>
-								<option>Binsitsi</option>
-								<option>Toru</option>
-							</select>
+							{$label_and_select_tyres_brand}
 						</div>
 						<div class="long">
 							{$label_and_select_tyres_year}
@@ -434,56 +427,56 @@
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
 			<h1><a href="#">Michelin PILOT SPORTY Tube Type</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<h2>BEST SELLERS - CAR TYRES</h2>
 		<article class="price">
@@ -491,77 +484,77 @@
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im2.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im2.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im2.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im2.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im2.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im2.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
 			<span class="params">P 155/70R 13 75S</span>
 			<span class="price">3 412 $</span>
-			<div class="raiting"></div>
+			<div class="buttons"><div class="views">45</div><div class="likes">14</div></div>
 		</article>
 	</div>
 {/block}

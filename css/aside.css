@@ -24,7 +24,7 @@ aside h1 {
 	height: 25px;
 	background: #c30e18 url(/images/find_icon.png) 3px 4px no-repeat;
 	position: relative;
-	top: -4px;
+	top: 8px;
 	left: -1px;
 }
 #search_filter {

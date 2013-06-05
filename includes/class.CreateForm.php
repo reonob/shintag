@@ -7,7 +7,7 @@
 		$options = $db_link->query('SELECT * FROM ' . $table_name . ' i ORDER BY i.id');
 		$result = '<select id="' . $id . '" name="' . $id . '" class="' . $class . '">';
 		if ($fictive == true) {
-			$result .= '<option value="unset"></option>';
+			$result .= '<option value="unset" selected disabled></option>';
 		}
 		foreach ($options as $option) {
 			$result .= '<option value="' . $option['id'] .'">' . $option['name'] . '</option>';

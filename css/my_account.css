@@ -9,6 +9,7 @@
 #column_center {
 	width: 70%;
 	margin: 0 10% 0 25%;
+	margin-top: 15px;
 }
 #column_center.once {
 	margin: 0;
@@ -222,7 +223,7 @@ article.price div.controls button:hover, #favourite_shops table td button:hover 
 }
 #new_ad_article h2 {
 	font-size: 110%;
-	margin: 5px 0;
+	margin: 15px 0;
 }
 #new_ad_article small {
 	font-size: 80%;
@@ -230,14 +231,11 @@ article.price div.controls button:hover, #favourite_shops table td button:hover 
 	margin: 7px 0;
 	display: block;
 }
-#new_ad_article button.to_step {
+#new_ad_article .red_button {
 	margin: 10px 10px 0 0;
-}
-#new_ad_article div.all_divs {
-	display: none;
-}
-#new_ad_article #div_step_1 {
-	display: block;
+	color: white;
+	display: inline-block;
+	text-decoration: none;
 }
 #new_ad_article label {
 	display: block;

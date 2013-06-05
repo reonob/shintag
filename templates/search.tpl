@@ -158,10 +158,12 @@
 		<ul class="catalog_menu">
 			<li><a href="#" class="active">Шины</a></li>
 			<li><a href="#">Диски</a></li>
+			<li><a href="#">Комплекты</a></li>
 			<li><a href="#">Аксессуары</a></li>
 			<li><a href="#">Услуги</a></li>
 		</ul>
 		<div class="catalog">
+			<!--
 			<article class="price">
 				<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
 				<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
@@ -218,6 +220,50 @@
 				<span class="price">3 412 $</span>
 				<div class="raiting"></div>
 			</article>
+			-->
+			<table>
+				<!--
+				<tr class="top_head">
+					<td>Фото</td>
+					<td>Название</td>
+					<td>Размер</td>
+					<td>Остаток</td>
+					<td>Сезон</td>
+					<td>Количество</td>
+					<td>Цена</td>
+				</tr>
+				-->
+				<tr class="top_head">
+					<td>Фото</td>
+					<td>Название</td>
+					<td>Шина</td>
+					<td>Диск</td>
+					<td>Сезон</td>
+					<td>Остаток</td>
+					<td>Количество</td>
+					<td>Цена</td>
+				</tr>
+				<tr>
+					<td><a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a></td>
+					<td class="name"><a href="#">Отличные диски + Yokohama резина</a></td>
+					<td class="params">155/70R13</td>
+					<td class="params">114.30x5 4x114.3 ET 45 литой</td>
+					<td class="params">Всесезонные</td>
+					<td class="params center">85%</td>
+					<td class="params center">2</td>
+					<td class="price nowrap">3 412 $</td>
+				</tr>
+				<tr>
+					<td><a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a></td>
+					<td class="name"><a href="#">Отличные диски + Yokohama резина</a></td>
+					<td class="params">155/70R13</td>
+					<td class="params">114.30x5 4x114.3 ET 45 литой</td>
+					<td class="params">Всесезонные</td>
+					<td class="params center">85%</td>
+					<td class="params center">2</td>
+					<td class="price nowrap">3 412 $</td>
+				</tr>
+			</table>
 		</div>
 	</div>
 {/block}

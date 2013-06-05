@@ -1,6 +1,6 @@
 {extends file='page.header_find.tpl'}
 {block name='div.main' append}
-<h1>{block name='page_title'}8cost{/block}</h1>
+<h1>{block name='page_title'}{/block}</h1>
 <ul id="top_menu">
  {block name='top_menu'}{/block}
 </ul>
