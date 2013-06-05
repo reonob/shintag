@@ -8,7 +8,7 @@
 {/block}
 {block name='content_wrap'}
 <section id="person_settings">
-	<h1>Amazon</h1>
+	<h1>{$contact_info.login|default:""}</h1>
 	<div class="column">
 	  <span><a href="#">Ссылка на мой профиль</a></span>
 	  <span>Просмотров профиля: <b>45</b></span>
@@ -38,27 +38,28 @@
 		  <div class="column">
 			<label for="p_country">Страна:</label>
 			<select id="p_country" name="p_country">
-			  <option value="1">Англия</option>
-			  <option value="2" selected="selected">Россия</option>
+				<option value="0">Не указано</option>
+				{html_options options=$geo_locations.countries selected=$contact_info.country_id|default:0}
 			</select>
 			<label for="p_district">Регион:</label>
 			<select id="p_district" name="p_district">
-			  <option value="1" selected="selected">Приморский край</option>
-			  <option value="2">Владивосток</option>
+				<option value="0">Не указано</option>
+				{html_options options=$geo_locations.regions selected=$contact_info.region_id|default:0}
 			</select>
 			<label for="p_city">Город:</label>
 			<select id="p_city" name="p_city">
-			  <option value="1">Нижний Новгород</option>
-			  <option value="2" selected="selected">Владивосток</option>
+			  <option value="0">Не указано</option>
+			  {html_options options=$geo_locations.cities selected=$contact_info.city_id|default:0}
 			</select>
 		  </div>
 		  <div class="column">
-			<label for="p_tel">Телефон:</label><input type="tel" id="p_tel" name="p_tel" value="89157016320" />
-			<label for="p_skype">Skype:</label><input id="p_skype" name="p_skype" value="kostya" />
-			<label for="p_others">Другие контакты:</label><textarea id="p_others" name="p_others">401542</textarea>
+			<label for="p_tel">Телефон:</label><input type="tel" id="p_tel" name="p_tel" value="{$contact_info.phone|default:""}" />
+			<label for="p_skype">Skype:</label><input id="p_skype" name="p_skype" value="{$contact_info.skype|default:""}" />
+			<label for="p_others">Другие контакты:</label><textarea id="p_others" name="p_others">{$contact_info.other_info|default:""}</textarea>
 		  </div>
 		  <div class="column">
-			<label for="p_adress">Адрес:</label><textarea id="p_adress" name="p_adress">Пологая 69, к.6</textarea>
+			<label for="p_adress">Адрес:</label><textarea id="p_adress" name="p_adress">{$contact_info.adress|default:""}</textarea>
+			<label for="p_email">E-mail:</label><input id="p_email" name="p_email" value="{$contact_info.email|default:""}" />
 			<span class="with_icon"><span class="i_mail"></span><a href="/includes/edit_data.php?type=change_email">Сменить e-mail</a></span>
 			<button class="red_button">Принять изменения</button>
 		  </div>
@@ -79,14 +80,14 @@
 					<option>102</option>
 					<option>103</option>
 					<option>104</option>
-				</select> / 
+				</select> /
 				<select id="tyres_height" name="tyres_height" class="min">
 					<option>95</option>
 					<option>101</option>
 					<option>102</option>
 					<option>103</option>
 					<option>104</option>
-				</select> R 
+				</select> R
 				<select id="tyres_radius" name="tyres_radius" class="min">
 					<option>44</option>
 					<option>101</option>
