@@ -57,20 +57,27 @@
       {
          global $db, $data_h;
          $query = 'UPDATE users SET email = ?, login = ?, password = ?,
-                          verification = ?, salt = ?, register_date = ?
+                          verification = ?, salt = ?, register_date = ?,
+                          country_id = ?, region_id = ?, city_id = ?, phone = ?,
+                          skype = ?, other_info = ?, adress = ?
                   WHERE id = ?';
          $new_values = array($this->email, $this->login, $this->password, $this->verification,
-                             $this->salt, $data_h->unixToMySQL($this->register_date), $this->id);
+                             $this->salt, $data_h->unixToMySQL($this->register_date),
+                             $this->country_id, $this->region_id, $this->city_id, $this->phone,
+                             $this->skype, $this->other_info, $this->adress, $this->id);
          $db->query($query, $new_values, false);
       }
 
       public function insert()
       {
          global $db, $data_h;
-         $query = 'INSERT INTO users(email, login, password, verification, salt, register_date)
-                   VALUES(?, ?, ?, ?, ?, ?)';
+         $query = 'INSERT INTO users(email, login, password, verification, salt, register_date,
+                                     country_id, region_id, city_id, phone, skype, other_info, adress)
+                   VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
          $values = array($this->email, $this->login, $this->password, $this->verification,
-                         $this->salt, $data_h->unixToMySQL($this->register_date));
+                         $this->salt, $data_h->unixToMySQL($this->register_date),
+                         $this->country_id, $this->region_id, $this->city_id, $this->phone,
+                         $this->skype, $this->other_info, $this->adress);
          $data = $db->query($query, $values, false);
       }
 

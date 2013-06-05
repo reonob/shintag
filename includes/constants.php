@@ -20,6 +20,7 @@
    define('ERROR_FORGOTTEN_PASS', 'Невозможно активировать пароль.');
    define('ERROR_OLD_NEW_PASS', 'Введенные пароли не совпадают.');
    define('ERROR_INVALID_EMAIL', 'Введен недействительный e-mail.');
+   define('ERROR_CONTACT_PHONE', 'Введен неверный номер телефона');
    define('ERROR_CAPTCHA', 'Ошибка при вводе символов с картинки');
    define('NUMBER_OF_LOGIN_ATTEMPTS', 3);
 ?>

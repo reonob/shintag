@@ -40,6 +40,14 @@
          return $this;
       }
 
+      public function validatePhone($phone, $message = ERROR_CONTACT_PHONE)
+      {
+         if (!preg_match('/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/', $phone)) {
+            throw new Exception($message);
+         }
+         return $this;
+      }
+
       function unixToMySQL($timestamp)
       {
          return date('Y-m-d H:i:s', $timestamp);

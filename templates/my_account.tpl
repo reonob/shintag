@@ -1,5 +1,30 @@
 {extends file='my_acc.base.tpl'}
 {block name='title' append} - Учетная запись{/block}
+{block name='links' append}
+{literal}
+<script type="text/javascript">
+	$(function() {
+	   $('#contact_info_form').submit(function() {
+	   	var $form = $(this);
+			$.post("/includes/change_contact_info.php", {
+				'country_id': $form.find('select#p_country option:selected').val(),
+				'region_id': $form.find('select#p_district option:selected').val(),
+				'city_id': $form.find('select#p_city option:selected').val(),
+				'phone': $form.find('input[name="p_tel"]').val(),
+				'skype': $form.find('input[name="p_skype"]').val(),
+				'other_info': $form.find('#p_others').val(),
+				'adress': $form.find('#p_adress').val()
+			}, function(data) {
+				if (!data.result) {
+					alert(data.message)
+				}
+         }, "json");
+	      return false;
+		});
+	});
+</script>
+{/literal}
+{/block}
 {block name='top_menu'}
 <li class="active">Учетная запись</li>
 <li><a href="/includes/my_add_ad.php">Добавить объявления</a></li>
