@@ -242,9 +242,14 @@ article.price div.controls button:hover, #favourite_shops table td button:hover 
 	font-weight: bold;
 	margin: 7px 0;
 }
-#new_ad_article label.inline {
+#new_ad_article .inline {
 	display: inline-block;
+}
+#new_ad_article label.inline {
 	margin: 5px;
+}
+#new_ad_article div.inline {
+	margin-right: 15px;
 }
 #new_ad_article select {
 	height: 25px;
@@ -263,10 +268,6 @@ article.price div.controls button:hover, #favourite_shops table td button:hover 
 	padding: 5px;
 	min-height: 44px;
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-}
-#new_ad_article div.inline {
-	display: inline-block;
-	margin-right: 15px;
 }
 #upload_photo {
 	margin: 25px 0;

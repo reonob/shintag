@@ -37,13 +37,14 @@
 			<form id="new_ad_form" name="new_ad_form" action="/includes/my_add_ad.php?step=2" method="POST">
 				<div id="div_step_1">
 					<h2>Шаг 1/4</h2>
-					<label for="add_category_main">Выберите раздел объявления</label>
-					<select id="add_category_main" name="add_category_main">
+					<label for="ad_category_main">Выберите раздел объявления</label>
+					<select id="ad_category_main" name="ad_category_main">
 						<option value="unset" selected disabled></option>
 						<option value="1">Шины</option>
 						<option value="2">Диски</option>
-						<option value="3">Аксессуары</option>
-						<option value="4">Услуги</option>
+						<option value="3">Комплекты</option>
+						<option value="4">Аксессуары</option>
+						<option value="5">Услуги</option>
 					</select>
 					<div>
 						<button class="red_button">Шаг 2</button>
@@ -54,46 +55,99 @@
 			<form id="new_ad_form" name="new_ad_form" action="/includes/my_add_ad.php?step=3" method="POST">
 				<div id="div_step_2">
 					<h2>Шаг 2/4</h2>
-					<label for="tyres_width">Размер, см *</label>
-					{$select_tyres_width} / {$select_tyres_height} R {$select_tyres_radius}
-					{$label_and_select_tyres_season}
-					<label for="tyres_price">Цена, руб *</label>
-					<label for="tyres_min_price" class="inline">от</label>
-					<input type="text" id="tyres_min_price" name="tyres_min_price" class="min" />
-					<label for="tyres_max_price" class="inline">до</label>
-					<input type="text" id="tyres_max_price" name="tyres_max_price" class="min" />
-					{$label_and_select_tyres_brand}
-					{$label_and_select_tyres_year}
-					{$label_and_select_tyres_state}
-					<label for="tyres_count">Количество</label>
-					<input type="text" id="tyres_count" name="tyres_count" class="min" />
-					<div>
-						<div class="inline">
-							<label for="tyres_auto">Тип авто</label>
-							<select id="tyres_auto" name="tyres_auto" class="long">
-								<option>4x4</option>
-								<option>Nissan</option>
-								<option>Suzuki dsf sdf </option>
-							</select>
-						</div>
-						<div class="inline">
-							<label for="tyres_make">Марка</label>
-							<select id="tyres_make" name="tyres_make" class="long">
-								<option>Toyota</option>
-								<option>Nissan</option>
-								<option>Suzuk dsfs df dsi</option>
-							</select>
-						</div>
-						<div class="inline">
-							<label for="tyres_model">Модель</label>
-							<select id="tyres_model" name="tyres_model" class="long" disabled="disabled">
-								<option>---</option>
-								<option>Ss</option>
-								<option>2011 fsdf ds  sdg</option>
-								<option>2010</option>
-								<option>2009</option>
-							</select>
-						</div>
+					{if $form_type == 1}
+						<label for="tyres_width">Размер, см *</label>
+						{$select_tyres_width} / {$select_tyres_height} R {$select_tyres_radius}
+						{$label_and_select_tyres_season}
+						<label for="tyres_price">Цена, руб *</label>
+						<label for="tyres_min_price" class="inline">от</label>
+						<input type="text" id="tyres_min_price" name="tyres_min_price" class="min" />
+						<label for="tyres_max_price" class="inline">до</label>
+						<input type="text" id="tyres_max_price" name="tyres_max_price" class="min" />
+						{$label_and_select_tyres_brand}
+						{$label_and_select_tyres_year}
+						{$label_and_select_tyres_state}
+						<label for="tyres_count">Количество</label>
+						<input type="text" id="tyres_count" name="tyres_count" class="min" />
+						<div>
+							<div class="inline">
+								<label for="tyres_auto">Тип авто</label>
+								<select id="tyres_auto" name="tyres_auto" class="long">
+									<option>4x4</option>
+									<option>Nissan</option>
+									<option>Suzuki dsf sdf </option>
+								</select>
+							</div>
+							<div class="inline">
+								<label for="tyres_make">Марка</label>
+								<select id="tyres_make" name="tyres_make" class="long">
+									<option>Toyota</option>
+									<option>Nissan</option>
+									<option>Suzuk dsfs df dsi</option>
+								</select>
+							</div>
+							<div class="inline">
+								<label for="tyres_model">Модель</label>
+								<select id="tyres_model" name="tyres_model" class="long" disabled="disabled">
+									<option>---</option>
+									<option>Ss</option>
+									<option>2011 fsdf ds  sdg</option>
+									<option>2010</option>
+									<option>2009</option>
+								</select>
+							</div>
+						{elseif $form_type == 2}
+							<div class="inline">
+								{$label_and_select_wheels_width}
+							</div>
+							<div class="inline">
+								{$label_and_select_wheels_radius}
+							</div>
+							<div class="inline">
+								{$label_and_select_wheels_pcd}
+							</div>
+							<div class="inline">
+								{$label_and_select_wheels_et}
+							</div>
+							{$label_and_select_wheels_type}
+							<label for="tyres_price">Цена, руб *</label>
+							<label for="wheels_min_price" class="inline">от</label>
+							<input type="text" id="wheels_min_price" name="wheels_min_price" class="min" />
+							<label for="wheels_max_price" class="inline">до</label>
+							<input type="text" id="wheels_max_price" name="wheels_max_price" class="min" />
+							{$label_and_select_wheels_brand}
+							{$label_and_select_wheels_year}
+							{$label_and_select_wheels_state}
+							<label for="wheels_count">Количество</label>
+							<input type="text" id="wheels_count" name="wheels_count" class="min" />
+							<div>
+							<div class="inline">
+								<label for="wheels_auto">Тип авто</label>
+								<select id="wheels_auto" name="wheels_auto" class="long">
+									<option>4x4</option>
+									<option>Nissan</option>
+									<option>Suzuki dsf sdf </option>
+								</select>
+							</div>
+							<div class="inline">
+								<label for="wheels_make">Марка</label>
+								<select id="wheels_make" name="wheels_make" class="long">
+									<option>Toyota</option>
+									<option>Nissan</option>
+									<option>Suzuk dsfs df dsi</option>
+								</select>
+							</div>
+							<div class="inline">
+								<label for="wheels_model">Модель</label>
+								<select id="wheels_model" name="wheels_model" class="long" disabled="disabled">
+									<option>---</option>
+									<option>Ss</option>
+									<option>2011 fsdf ds  sdg</option>
+									<option>2010</option>
+									<option>2009</option>
+								</select>
+							</div>
+						{/if}
 					</div>
 					<div>
 						<button class="red_button">Шаг 3</button>

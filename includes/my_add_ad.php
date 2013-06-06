@@ -9,6 +9,17 @@
 	$smarty->assign('label_and_select_tyres_brand', get_label_and_select($db, 'tyres_brand', 'Производитель', true));
 	$smarty->assign('label_and_select_tyres_state', get_label_and_select($db, 'product_state', 'Состояние', true, '', 'tyres_state'));
 	$smarty->assign('label_and_select_tyres_year', get_label_and_select($db, 'years', 'Год', true, '', 'tyres_year'));
+	
+	$smarty->assign('label_and_select_wheels_width', get_label_and_select($db, 'wheels_width', 'Ширина, см', true));
+	$smarty->assign('label_and_select_wheels_radius', get_label_and_select($db, 'wheels_radius', 'Радиус, см', true));
+	$smarty->assign('label_and_select_wheels_pcd', get_label_and_select($db, 'wheels_pcd', 'PCD', true));
+	$smarty->assign('label_and_select_wheels_et', get_label_and_select($db, 'wheels_et', 'ET(Вылет)', true));
+	$smarty->assign('label_and_select_wheels_type', get_label_and_select($db, 'wheels_type', 'Тип', true));
+	$smarty->assign('label_and_select_wheels_state', get_label_and_select($db, 'product_state', 'Состояние', true, '', 'wheels_state'));
+	$smarty->assign('label_and_select_wheels_year', get_label_and_select($db, 'years', 'Год', true, '', 'wheels_year'));
+	$smarty->assign('label_and_select_wheels_brand', get_label_and_select($db, 'wheels_brand', 'Производитель', true, 'long'));
+	
 	$smarty->assign('step', $_GET['step']);
+	$smarty->assign('form_type', $_POST['ad_category_main']);
 	$smarty->display('my_add_ad.tpl');
 ?>
