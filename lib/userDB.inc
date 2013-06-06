@@ -9,7 +9,14 @@
       public $salt;
       public $email;
       public $login;
+      public $phone;
+      public $skype;
+      public $adress;
+      public $city_id;
       public $password;
+      public $region_id;
+      public $country_id;
+      public $other_info;
       public $verification;
       public $register_date;
 
@@ -34,7 +41,8 @@
          if (!$email) return;
          global $db;
          $query = 'SELECT id, email, login, password, verification, salt,
-                          UNIX_TIMESTAMP(register_date) as register_date
+                          UNIX_TIMESTAMP(register_date) as register_date,
+                          country_id, region_id, city_id, phone, skype, other_info, adress
                    FROM users WHERE email = ?';
          $data = $db->query($query, array($email));
          $this->email = $email;
@@ -49,20 +57,27 @@
       {
          global $db, $data_h;
          $query = 'UPDATE users SET email = ?, login = ?, password = ?,
-                          verification = ?, salt = ?, register_date = ?
+                          verification = ?, salt = ?, register_date = ?,
+                          country_id = ?, region_id = ?, city_id = ?, phone = ?,
+                          skype = ?, other_info = ?, adress = ?
                   WHERE id = ?';
          $new_values = array($this->email, $this->login, $this->password, $this->verification,
-                             $this->salt, $data_h->unixToMySQL($this->register_date), $this->id);
+                             $this->salt, $data_h->unixToMySQL($this->register_date),
+                             $this->country_id, $this->region_id, $this->city_id, $this->phone,
+                             $this->skype, $this->other_info, $this->adress, $this->id);
          $db->query($query, $new_values, false);
       }
 
       public function insert()
       {
          global $db, $data_h;
-         $query = 'INSERT INTO users(email, login, password, verification, salt, register_date)
-                   VALUES(?, ?, ?, ?, ?, ?)';
+         $query = 'INSERT INTO users(email, login, password, verification, salt, register_date,
+                                     country_id, region_id, city_id, phone, skype, other_info, adress)
+                   VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
          $values = array($this->email, $this->login, $this->password, $this->verification,
-                         $this->salt, $data_h->unixToMySQL($this->register_date));
+                         $this->salt, $data_h->unixToMySQL($this->register_date),
+                         $this->country_id, $this->region_id, $this->city_id, $this->phone,
+                         $this->skype, $this->other_info, $this->adress);
          $data = $db->query($query, $values, false);
       }
 
