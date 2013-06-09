@@ -1,15 +1,14 @@
 {extends file='my_acc.base.tpl'}
 {block name='title' append} - Добавить объявления{/block}
 {block name='links' append}
+	<script src="/js/ajaxupload.3.5.js"></script>
 	<script>
-		/*$(function(){
-			$('#new_ad_article button.to_step').click(function(){
-				$('#new_ad_article div.all_divs').hide();
-				$('#div_' + $(this).attr('id')).show();
-				return false;
-			});
-		});*/
+		$(function() {
+			window.ad_id = {$ad_id};
+		});
 	</script>
+	<script src="/js/images_upload.js"></script>
+	<script src="/js/check_form.js"></script>
 {/block}
 {block name='top_menu'}
   <li><a href="/includes/my_account.php">Учетная запись</a></li>
@@ -31,20 +30,20 @@
   </section>
   <section id="new_ad_article">
 	<h1>Новое объявление</h1>
-	<small>Добавление объявления состоит из четырех шагов. Чем более подробно вы заполните поля, тем больше вероятность что ваше объявление станет популярным.</small>
+	<small>Добавление объявления состоит из трех шагов. Чем более подробно вы заполните поля, тем больше вероятность что ваше объявление станет популярным.</small>
 	<small>* - обязательные для заполнения поля</small>
 		{if $step == 1 || $step == ''}
 			<form id="new_ad_form" name="new_ad_form" action="/includes/my_add_ad.php?step=2" method="POST">
 				<div id="div_step_1">
-					<h2>Шаг 1/4</h2>
+					<h2>Шаг 1/3</h2>
 					<label for="ad_category_main">Выберите раздел объявления</label>
 					<select id="ad_category_main" name="ad_category_main">
 						<option value="unset" selected disabled></option>
 						<option value="1">Шины</option>
-						<option value="2">Диски</option>
+						<!--<option value="2">Диски</option>
 						<option value="3">Комплекты</option>
 						<option value="4">Аксессуары</option>
-						<option value="5">Услуги</option>
+						<option value="5">Услуги</option>-->
 					</select>
 					<div>
 						<button class="red_button">Шаг 2</button>
@@ -54,22 +53,19 @@
 		{elseif $step == 2}
 			<form id="new_ad_form" name="new_ad_form" action="/includes/my_add_ad.php?step=3" method="POST">
 				<div id="div_step_2">
-					<h2>Шаг 2/4</h2>
-					{if $form_type == 1}
+					<h2>Шаг 2/3</h2>
+					{if $ad_type == 1}
 						<label for="tyres_width">Размер, см *</label>
 						{$select_tyres_width} / {$select_tyres_height} R {$select_tyres_radius}
 						{$label_and_select_tyres_season}
 						<label for="tyres_price">Цена, руб *</label>
-						<label for="tyres_min_price" class="inline">от</label>
-						<input type="text" id="tyres_min_price" name="tyres_min_price" class="min" />
-						<label for="tyres_max_price" class="inline">до</label>
-						<input type="text" id="tyres_max_price" name="tyres_max_price" class="min" />
+						<input type="text" id="tyres_price" name="tyres_price" class="min" />
 						{$label_and_select_tyres_brand}
 						{$label_and_select_tyres_year}
 						{$label_and_select_tyres_state}
-						<label for="tyres_count">Количество</label>
+						<label for="tyres_count">Количество*</label>
 						<input type="text" id="tyres_count" name="tyres_count" class="min" />
-						<div>
+						<!--<div>
 							<div class="inline">
 								<label for="tyres_auto">Тип авто</label>
 								<select id="tyres_auto" name="tyres_auto" class="long">
@@ -96,31 +92,29 @@
 									<option>2009</option>
 								</select>
 							</div>
-						{elseif $form_type == 2}
-							<div class="inline">
-								{$label_and_select_wheels_width}
-							</div>
-							<div class="inline">
-								{$label_and_select_wheels_radius}
-							</div>
-							<div class="inline">
-								{$label_and_select_wheels_pcd}
-							</div>
-							<div class="inline">
-								{$label_and_select_wheels_et}
-							</div>
-							{$label_and_select_wheels_type}
-							<label for="tyres_price">Цена, руб *</label>
-							<label for="wheels_min_price" class="inline">от</label>
-							<input type="text" id="wheels_min_price" name="wheels_min_price" class="min" />
-							<label for="wheels_max_price" class="inline">до</label>
-							<input type="text" id="wheels_max_price" name="wheels_max_price" class="min" />
-							{$label_and_select_wheels_brand}
-							{$label_and_select_wheels_year}
-							{$label_and_select_wheels_state}
-							<label for="wheels_count">Количество</label>
-							<input type="text" id="wheels_count" name="wheels_count" class="min" />
-							<div>
+						</div>-->
+					{elseif $ad_type == 2}
+						<div class="inline">
+							{$label_and_select_wheels_width}
+						</div>
+						<div class="inline">
+							{$label_and_select_wheels_radius}
+						</div>
+						<div class="inline">
+							{$label_and_select_wheels_pcd}
+						</div>
+						<div class="inline">
+							{$label_and_select_wheels_et}
+						</div>
+						{$label_and_select_wheels_type}
+						<label for="wheels_price">Цена, руб *</label>
+						<input type="text" id="wheels_price" name="wheels_price" class="min" />
+						{$label_and_select_wheels_brand}
+						{$label_and_select_wheels_year}
+						{$label_and_select_wheels_state}
+						<label for="wheels_count">Количество</label>
+						<input type="text" id="wheels_count" name="wheels_count" class="min" />
+						<!--<div>
 							<div class="inline">
 								<label for="wheels_auto">Тип авто</label>
 								<select id="wheels_auto" name="wheels_auto" class="long">
@@ -147,8 +141,8 @@
 									<option>2009</option>
 								</select>
 							</div>
-						{/if}
-					</div>
+						</div>-->
+					{/if}
 					<div>
 						<button class="red_button">Шаг 3</button>
 					</div>
@@ -157,7 +151,7 @@
 		{elseif $step == 3}
 			<form id="new_ad_form" name="new_ad_form" action="/includes/my_add_ad.php?step=4" method="POST">
 				<div id="div_step_3">
-					<h2>Шаг 3/4</h2>
+					<h2>Шаг 3/3</h2>
 					<label for="ad_name">Заголовок объявления *</label>
 					<small>Кратко и информативно опишите ваше объявление.</small>
 					<input type="text" id="ad_name" name="ad_name" size="70" />
@@ -168,28 +162,28 @@
 						<option value="1">21 день</option>
 					</select>
 					<label for="ad_contacts">Контактные данные *</label>
-					<small>Только телефоны и примечания. Каждый контакт с новой строки.</small>
+					<small>Только телефоны. Каждый контакт с новой строки.</small>
 					<textarea name="ad_contacts" id="ad_contacts" rows="5"></textarea>
 					<label for="ad_mail">E-mail</label>
 					<input type="mail" id="ad_mail" name="ad_mail" size="40" />
-					<div>
-						<button class="red_button">Шаг 4</button>
-					</div>
-				</div>
-			</form>
-		{elseif $step == 4}
-			<form id="new_ad_form" name="new_ad_form" action="/includes/my_add_ad.php?step=5" method="POST">
-				<div id="div_step_4">
-					<h2>Шаг 4/4</h2>
-					<small>Загрузите фотографии для вашего объявления.</small>
-					<small>Первая фотография автоматически становится аватаром.</small>
-					<small>Максимум в объявлении может быть 15 фотографий.</small>
-					<button class="green_button" id="upload_photo">Добавить фотографию</button>
 					<div>
 						<button class="red_button">Создать объявление</button>
 					</div>
 				</div>
 			</form>
+		{elseif $step == 4}
+			<div id="div_step_4">
+				<h2>Добавление фотографий</h2>
+				<small>Загрузите фотографии для вашего объявления.</small>
+				<small>Первая фотография автоматически становится аватаром.</small>
+				<small>Максимум в объявлении может быть 15 фотографий.</small>
+				<button class="green_button" id="upload_photo">Добавить фотографию</button>
+				<span id="status_photo"></span>
+				<div id="photos_div"></div>
+				<div>
+					<a class="red_button" href="/includes/card.php?ad_id={$ad_id}">Перейти на страницу объявления</a>
+				</div>
+			</div>
 		{/if}
     </form>
   </section>

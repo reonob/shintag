@@ -1,11 +1,11 @@
 <?php
    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/container.php';
    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/class.CreateForm.php';
-   // require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/guardian.php';
+   require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/guardian.php';
 
    //contact info
-   // $user = new UserDB($_SESSION['email']);
-   $user = new UserDB('abramin@mail.ru');
+   $user = new UserDB($_SESSION['email']);
+   //$user = new UserDB('abramin@mail.ru');
    $ci['email']      = $user->email;
    $ci['login']      = $user->login;
    $ci['skype']      = $user->skype;
@@ -15,6 +15,7 @@
    $ci['city_id']    = $user->city_id;
    $ci['region_id']  = $user->region_id;
    $ci['country_id'] = $user->country_id;
+   $ci['about']      = $user->about;
 
    $geo_locations = array(
                      'cities' => array(),

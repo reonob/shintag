@@ -1,6 +1,6 @@
 <h1>Удаление аккаунта</h1>
-<p style="font-weight: bold">{$errorMsg|default:''}</p>
-<p style="font-weight: bold">{$successMsg|default:''}</p>
+<p style="font-weight: bold; text-align: center">{$errorMsg|default:''}</p>
+<p style="font-weight: bold; text-align: center">{$successMsg|default:''}</p>
 <table>
   <tr>
     <td class="center">Вы действительно хотите это сделать?</td>

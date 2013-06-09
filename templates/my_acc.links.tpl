@@ -1,9 +1,9 @@
 <link href="/css/aside.css" media="all" rel="stylesheet" />
 <link href="/css/prices.css" media="all" rel="stylesheet" />
-<link href="/css/share_button.css" media="all" rel="stylesheet" />
-<link href="/css/multiselect.css" media="all" rel="stylesheet" />
+<!--<link href="/css/share_button.css" media="all" rel="stylesheet" />-->
+<!--<link href="/css/multiselect.css" media="all" rel="stylesheet" />-->
 <link href="/css/top_head.css" media="all" rel="stylesheet" />
-<script src="/js/share_button.js"></script>
+<!--<script src="/js/share_button.js"></script>-->
 <script src="/js/jquery.ui.js"></script>
 <script src="/js/jquery.multiselect.min.js"></script>
 <script src="/js/dropdown_blocks.js"></script>
