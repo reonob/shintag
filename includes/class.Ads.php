@@ -1,11 +1,24 @@
 <?php
 	require_once 'connect.php';
+	
 	class Ads 
 	{
 		public $table;
-		public $params_names;
+		public $sub_params;
 		public $main_params;
 		public $main_table = 'main_ads';
+		public $id;
+		public $main_relations = array(
+								'name' => 'ad_name',
+								'text' => 'ad_text',
+								'date' => 'ad_date',
+								'time' => 'ad_time',
+								'mail' => 'ad_mail',
+								'contacts' => 'ad_contacts',
+								'reffer' => 'ad_reffer',
+								'ad_type' => 'ad_type',
+								'user_id' => 'user_id'
+							);
 		
 		public function __construct() 
 		{
@@ -20,88 +33,113 @@
 									   'user_id' => 0);
 		}
 		
-		public function Insert_in_DB($table_name, $values) //первый параметр название таблицы 
-		{
-			global $db;
-			$query = "INSERT INTO " . $table_name . " VALUES (" . str_repeat('?,', count($values)-1) . "?)";
-			$db->exec($query, $values);
-			return $db->link->lastInsertId();
-		}
-		
-		public function Insert_in_main_table() 
-		{									
-			return $this->Insert_in_DB( $this->main_table, 
-										array('NULL',
-											  $this->main_params['ad_name'],
-											  $this->main_params['ad_text'],
-											  $this->main_params['ad_date'],
-											  $this->main_params['ad_time'],
-											  $this->main_params['ad_contacts'],
-											  $this->main_params['ad_mail'],
-											  $this->main_params['ad_reffer'],
-											  $this->main_params['ad_type'],
-											  $this->main_params['user_id'])
-										);
-		}
-		
-		public function Select_from_DB($table_name, $ad_id) 
-		{
-			global $db;
-			$query = "SELECT * FROM " . $table_name . " WHERE " . $table_name . ".id = ?";
-			$arr = $db->query($query, array($ad_id));
-			
-			return $arr[0];
-		}
-		
-		public function Select_from_main_DB($ad_id)
-		{
-			return $this->Select_from_DB($this->main_table, $ad_id);
-		}
-		
-		public function Insert_in_sub_table()
-		{
-		}
-		
 		public function Insert() 
-		{
-			$this->Insert_in_sub_table();
-			return $this->Insert_in_main_table();
+		{			
+			global $db;
+			$this->id = $db->Insert( $this->main_table, 
+									 array('NULL',
+										$this->main_params['ad_name'],
+										$this->main_params['ad_text'],
+										$this->main_params['ad_date'],
+										$this->main_params['ad_time'],
+										$this->main_params['ad_contacts'],
+										$this->main_params['ad_mail'],
+										$this->main_params['ad_reffer'],
+										$this->main_params['ad_type'],
+										$this->main_params['user_id'])
+								    );
+			return $this->id;
 		}
 		
-		public function get_array_of_contacts($contacts) 
+		public function Select_from_id($ad_id)
 		{
-			return explode("\n", $contacts);
+			global $db;
+			$arr = $db->Select_from_id($this->main_table, $ad_id);
+			
+			foreach ($this->main_relations as $key => $val) {
+				$this->main_params[$val] = $arr[$key];
+			}
+			
+			$this->id = $ad_id;
 		}
 		
-		public function State($id) 
+		public function Get_array_of_contacts() 
 		{
-			$x = $this->Select_from_DB('product_state', $id);
-			return $x['name'];
+			return explode("\n", $this->main_params['ad_contacts']);
 		}
 		
-		public function Year($id) 
+		public static function State($id) 
 		{
-			$x = $this->Select_from_DB('years', $id);
-			return $x['name'];
+			global $db;
+			$t = $db->Select_from_id('product_state', $id);
+			return $t['name'];
+		}
+		
+		public static function Year($id) 
+		{
+			global $db;
+			$t = $db->Select_from_id('years', $id);
+			return $t['name'];
+		}
+		
+		public static function Get_class_from_type($ad_type) 
+		{
+			$array_classes = array(1 => 'Tyres_Ads', 2 => 'Wheels_Ads');
+			return new $array_classes[$ad_type]();
+		}
+		
+		public static function Get_ad_from_id($ad_id) 
+		{
+			$obj = new Ads();
+			$obj->Select_from_id($ad_id);
+			$res = Ads::Get_class_from_type($obj->main_params['ad_type']);
+			$res->main_params = $obj->main_params;
+			$res->Select_from_id($res->main_params['ad_reffer']);
+			unset($obj);
+			return $res;
+		}
+		
+		public function Get_string() 
+		{
+			return array_merge($this->main_params, $this->sub_params);
+		}
+		
+		public function Delete() 
+		{
+			global $db;
+			$db->Delete($table->main_table, $this->id);
+		}
+		
+		public function Update() {
+			global $db;
+			$res_arr = array();
+			foreach ($this->main_relations as $key => $val) {
+				$res_arr[$key] = $this->main_params[$val];
+			}
+			$db->Update($this->main_table, $res_arr, $this->$id);
 		}
 	}
 	
-	function get_type_of_ad($ad_id) 
-	{
-		$obj = new Ads();
-		$arr = $obj->Select_from_DB($obj->main_table, $ad_id);
-		$type = $arr['ad_type'];
-		unset($obj);
-		return $type;
-	}
+	
 	
 	class Tyres_Ads extends Ads 
 	{
 		public $table = 'tyres_ads';
-		
+		public $sub_relations = array(
+								'width' => 'tyres_width',
+								'height' => 'tyres_height',
+								'radius' => 'tyres_radius',
+								'season' => 'tyres_season',
+								'year' => 'tyres_year',
+								'brand' => 'tyres_brand',
+								'state' => 'tyres_state',
+								'count' => 'tyres_count',
+								'price' => 'ad_price'
+							);
+							
 		public function __construct() 
 		{
-			$this->params_names = array('tyres_width' => 0, 
+			$this->sub_params = array('tyres_width' => 0, 
 										'tyres_height' => 0, 
 										'tyres_radius' => 0,
 										'tyres_season' => 0, 
@@ -109,63 +147,90 @@
 										'tyres_brand' => 0, 
 										'tyres_state' => 0, 
 										'tyres_count' => 0,
-										'tyres_price' => 0);
+										'ad_price' => 0);
 			parent::__construct();
 			$this->main_params['ad_type'] = 1;
 		}
 		
-		public function Insert_in_sub_table() 
+		public function Insert() 
 		{
-			$this->main_params['ad_reffer'] = $this->Insert_in_DB(  $this->table,
-																	array('NULL',
-																		$this->params_names['tyres_width'],
-																		$this->params_names['tyres_height'],
-																		$this->params_names['tyres_radius'],
-																		$this->params_names['tyres_season'],
-																		$this->params_names['tyres_year'],
-																		$this->params_names['tyres_brand'],
-																		$this->params_names['tyres_state'],
-																		$this->params_names['tyres_count'],
-																		$this->params_names['tyres_price'])
-																	);
-			
-			return $this->main_params['ad_reffer'];
+			global $db;
+			$this->main_params['ad_reffer'] = $db->Insert(  $this->table,
+															array('NULL',
+																$this->sub_params['tyres_width'],
+																$this->sub_params['tyres_height'],
+																$this->sub_params['tyres_radius'],
+																$this->sub_params['tyres_season'],
+																$this->sub_params['tyres_year'],
+																$this->sub_params['tyres_brand'],
+																$this->sub_params['tyres_state'],
+																$this->sub_params['tyres_count'],
+																$this->sub_params['ad_price'])
+														 );			
+			return parent::Insert();
 		}
-		public function Select($ad_id) {
-			$ad_arr = $this->Select_from_main_DB($ad_id);
-			$ad_sub_id = $ad_arr['reffer'];
-			$ad_sub_arr = $this->Select_from_DB($this->table, $ad_sub_id);
-			return array_merge($ad_arr, $ad_sub_arr);
+		public function Select_from_id($ad_id) { //не вызывается напрямую
+			global $db;
+			$arr = $db->Select_from_id($this->table, $ad_id);
+			//////??
+			foreach ($this->sub_relations as $key => $val) {
+				$this->sub_params[$val] = $arr[$key];
+			}
 		}
 		
-		public function Width($id) 
+		public static function Width($id) 
 		{
-			$x = $this->Select_from_DB('tyres_width', $id);
-			return $x['name'];
+			global $db;
+			$t = $db->Select_from_id('tyres_width', $id);
+			return $t['name'];
 		}
 		
-		public function Height($id) 
+		public static function Height($id) 
 		{
-			$x = $this->Select_from_DB('tyres_height', $id);
-			return $x['name'];
+			global $db;
+			$t = $db->Select_from_id('tyres_height', $id);
+			return $t['name'];
 		}
 		
-		public function Radius($id) 
+		public static function Radius($id) 
 		{
-			$x = $this->Select_from_DB('tyres_radius', $id);
-			return $x['name'];
+			global $db;
+			$t = $db->Select_from_id('tyres_radius', $id);
+			return $t['name'];
 		}
 		
-		public function Season($id) 
+		public static function Season($id) 
 		{
-			$x = $this->Select_from_DB('tyres_season', $id);
-			return $x['name'];
+			global $db;
+			$t = $db->Select_from_id('tyres_season', $id);
+			return $t['name'];
 		}
 		
-		public function Brand($id) {
-			$x = $this->Select_from_DB('tyres_brand', $id);
-			return $x['name'];
+		public static function Brand($id) 
+		{
+			global $db;
+			$t = $db->Select_from_id('tyres_brand', $id);
+			return $t['name'];
 		}
+		
+		public function Delete() 
+		{
+			parent::Delete();
+			global $db;
+			$db->Delete($table->table, $this->main_params['ad_reffer']);
+		}
+		
+		public function Update() 
+		{
+			parent::Update();
+			global $db;
+			$res_arr = array();
+			foreach ($this->sub_relations as $key => $val) {
+				$res_arr[$key] = $this->sub_params[$val];
+			}
+			$db->Update($this->table, $res_arr, $this->main_params['ad_reffer']);
+		}
+		
 	}
 	
 ?>

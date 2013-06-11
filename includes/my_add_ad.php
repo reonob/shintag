@@ -23,16 +23,15 @@
 	
 	$smarty->assign('step', $_GET['step']);
 	
-	$array_classes = array(1 => 'Tyres_Ads', 2 => 'Wheels_Ads');
 	if ($_GET['step'] == 2) {
 		$smarty->assign('ad_type', $_POST['ad_category_main']);
-		$_SESSION['ad_info'] = serialize( new $array_classes[$_POST['ad_category_main']]() );
+		$_SESSION['ad_info'] = serialize(Ads::Get_class_from_type($_POST['ad_category_main']));
 	}
 	if ($_GET['step'] == 3) {
 		$obj = unserialize($_SESSION['ad_info']);
 		foreach($_POST as $key => $val) {
-			if (array_key_exists($key, $obj->params_names) && $val != 'unset') {
-				$obj->params_names[$key] = $val;
+			if (array_key_exists($key, $obj->sub_params) && $val != 'unset') {
+				$obj->sub_params[$key] = $val;
 			}
 		}
 		$_SESSION['ad_info'] = serialize($obj);
