@@ -4,7 +4,7 @@ class Mail
 {
    private $site = ' http://kolesa.su.com';
    private $activation_url = '/includes/activation.php';
-   private $isLocalhost = false;
+   private $isLocalhost = true;
 
    public function getUniqueSignature($email, $login, $pass)
    {
