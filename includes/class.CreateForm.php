@@ -15,7 +15,7 @@
 		$result .= '</select>';
 		return $result;
 	}
-	 function get_label_and_select($db_link, $table_name, $rus_name, $fictive, $select_class = '', $id = '', $label_class = '', $selected = -1) {
+	 function get_label_and_select($db_link, $table_name, $rus_name, $fictive = true, $select_class = '', $id = '', $label_class = '', $selected = -1) {
 		if ($id == '') {
 			$id = $table_name;
 		}
