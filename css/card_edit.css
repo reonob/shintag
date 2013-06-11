@@ -76,3 +76,23 @@
 	height: 15px;
 	padding: 0;
 }
+#card_edit div.column {
+	display: inline-block;
+	margin-right: 50px;
+	vertical-align: top;
+}
+#card_edit small {
+	font-size: 80%;
+	font-style: italic;
+	margin: 7px 0;
+	display: block;
+}
+#bottom_part {
+	margin-top: 25px;
+}
+#card_edit .red_button {
+	margin: 10px 10px 0 0;
+	color: white;
+	display: inline-block;
+	text-decoration: none;
+}

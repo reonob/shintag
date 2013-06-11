@@ -21,7 +21,7 @@
 				<tr>
 				{for $j=0 to 3}
 					{if ($i + $j) <= ($images_count - 1)}
-						<td><img class="mini" src="/includes/uploads/{$images[$i + $j]['id']}_s.jpg" alt="{$ad_arr['name']}" /></td>
+						<td class="mini"><img src="/includes/uploads/{$images[$i + $j]['id']}_s.jpg" alt="{$ad_arr['name']}" /></td>
 					{/if}
 				{/for}
 				</tr>

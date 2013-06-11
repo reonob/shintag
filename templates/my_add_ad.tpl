@@ -178,8 +178,8 @@
 				<small>Первая фотография автоматически становится аватаром.</small>
 				<small>Максимум в объявлении может быть 15 фотографий.</small>
 				<button class="green_button" id="upload_photo">Добавить фотографию</button>
-				<span id="status_photo"></span>
 				<div id="photos_div"></div>
+				<span id="status_photo"></span>
 				<div>
 					<a class="red_button" href="/includes/card.php?ad_id={$ad_id}">Перейти на страницу объявления</a>
 				</div>
