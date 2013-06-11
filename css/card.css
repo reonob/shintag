@@ -32,6 +32,13 @@ article.main_article div.left {
 article.main_article div.left table.gallery {
 	width: 400px;
 }
+article.main_article div.left table.gallery td img.mini {
+	width: 97px;
+	height: 97px;
+}
+article.main_article div.left table.gallery td img {
+	border: 1px #444 solid;
+}
 article.main_article div.left  div.about {
 	margin-top: 30px;
 	padding-bottom: 10px;

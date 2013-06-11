@@ -1,9 +1,9 @@
 <h1>Напомнить пароль</h1>
 
 {if $isAdded}
-  <p style="font-weight: bold">На указанный вами e-mail отправленно письмо с вашим новым паролем и ссылкой для подтверждения его изменения.</p>
+  <p style="font-weight: bold; text-align: center">На указанный вами e-mail отправленно письмо с вашим новым паролем и ссылкой для подтверждения его изменения.</p>
 {else}
-  <p style="font-weight: bold">{$errorMsg|default:''}</p>
+  <p style="font-weight: bold; text-align: center">{$errorMsg|default:''}</p>
   <table>
     <tr>
       <td colspan="2" class="small">На указанный вами e-mail будет отправленно письмо с вашим новым паролем и ссылкой для подтверждения его изменения.</td>

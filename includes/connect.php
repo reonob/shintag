@@ -25,6 +25,37 @@
 			}
 			return $st->fetchAll(PDO::FETCH_ASSOC);
 		}
+		
+		public function Insert($table_name, $values) //первый параметр название таблицы 
+		{
+			$query = "INSERT INTO " . $table_name . " VALUES (" . str_repeat('?,', count($values)-1) . "?)";
+			$this->exec($query, $values);
+			return $this->link->lastInsertId();
+		}
+		
+		public function Select_from_ID($table_name, $id) 
+		{
+			$query = "SELECT * FROM " . $table_name . " WHERE " . $table_name . ".id = ?";
+			$arr = $this->query($query, array($id));
+			return $arr[0];
+		}
+		
+		public function Update($table_name, $id, $arr) 
+		{
+			$set = array();
+			foreach ($arr as $key => $val) {
+				$set[] = $key . '=?';
+			}
+			$query = "UPDATE " . $table_name . " SET " . join(', ', $set) . " WHERE " . $table_name . ".id = ?";
+			$arr = $this->query($query, array_merge(array_values($arr), array($id))); //послдений ? - id
+		}
+		
+		public function Delete($table_name, $id) 
+		{
+			$query = "DELETE FROM " . $table_name . " WHERE " . $table_name . ".id = ?";
+			$arr = $this->query($query, array($id));
+		}
+		
    }
 
    $db = new DBConnect(DB_dsn, DB_user, DB_pass);

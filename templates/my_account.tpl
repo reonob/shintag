@@ -7,9 +7,9 @@
 	   $('#contact_info_form').submit(function() {
 	   	var $form = $(this);
 			$.post("/includes/change_contact_info.php", {
-				'country_id': $form.find('select#p_country option:selected').val(),
-				'region_id': $form.find('select#p_district option:selected').val(),
-				'city_id': $form.find('select#p_city option:selected').val(),
+				'country_id': $form.find('#p_country option:selected').val(),
+				'region_id': $form.find('#p_district option:selected').val(),
+				'city_id': $form.find('#p_city option:selected').val(),
 				'phone': $form.find('input[name="p_tel"]').val(),
 				'skype': $form.find('input[name="p_skype"]').val(),
 				'other_info': $form.find('#p_others').val(),
@@ -20,6 +20,17 @@
 				}
          }, "json");
 	      return false;
+		});
+		$('#info_about button').click(function() {
+			alert('f');
+			$.post("/includes/change_contact_info.php", {
+				'about': $('#p_about').val()
+			}, function(data) {
+				if (!data.result) {
+					alert(data.message)
+				}
+			}, "json");
+			return false;
 		});
 	});
 </script>
@@ -53,7 +64,7 @@
 	</div>
 	<div id="info_about">
 		<h2><label>Информация для остальных пользователей</label></h2>
-		<p>Бла бла бла бла бла бла бла.</p>
+		<textarea id="p_about" name="p_about" cols="70" rows="12">{$contact_info.about|default:"Нет информации."}</textarea>
 		<button class="red_button">Изменить</button>
 	</div>
 	<section id="contact_info">
@@ -84,7 +95,7 @@
 		  </div>
 		  <div class="column">
 			<label for="p_adress">Адрес:</label><textarea id="p_adress" name="p_adress">{$contact_info.adress|default:""}</textarea>
-			<label for="p_email">E-mail:</label><input id="p_email" name="p_email" value="{$contact_info.email|default:""}" />
+			<label>E-mail: <b>{$contact_info.email|default:""}</b></label>
 			<span class="with_icon"><span class="i_mail"></span><a href="/includes/edit_data.php?type=change_email">Сменить e-mail</a></span>
 			<button class="red_button">Принять изменения</button>
 		  </div>

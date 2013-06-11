@@ -1,15 +1,10 @@
-﻿<?php
+<?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/container.php';
 class Mail
 {
-   private $site = '8cost.ru';
+   private $site = ' http://kolesa.su.com';
    private $activation_url = '/includes/activation.php';
-   private $isLocalhost = true;
-
-   public function setIsLocalhost($isLocalhost)
-   {
-       $this->isLocalhost = $isLocalhost;
-   }
+   private $isLocalhost = false;
 
    public function getUniqueSignature($email, $login, $pass)
    {
@@ -39,13 +34,12 @@ class Mail
 
       $date = time();
       $subject = "Активация аккаунта";
-      $message = "<a href='".$this->site.$this->activation_url.'?type=activation&hash='
-                  .$hash.'&email='.$email."'>Активировать аккаунт</a>";
+      $message = '<a href="' . $this->site . $this->activation_url . '?type=activation&hash='
+                  . $hash . '&email=' . $email . '">Активировать аккаунт</a>';
 
       if ($this->isLocalhost) {
          $this->saveToFile($email, $subject, $message);
       } else {
-         // mail($email, $subject, $message, $header);
          sendEmail($email, $subject, $message, $this->site, 'Компания 8cost');
       }
    }
@@ -57,8 +51,8 @@ class Mail
 
       $date = time();
       $subject = "Подтверждение изменения e-mail.";
-      $message = "<a href='".$this->site.$this->activation_url.'?type=change_email&hash='.$hash
-                .'&old_email='.$oldEmail.'&new_email='.$newEmail."'>Смена e-mail</a>";
+      $href = $this->site . $this->activation_url . '?type=change_email&hash=' . $hash . '&old_email=' . $oldEmail . '&new_email=' . $newEmail;
+      $message = '<p><a href="' . $href . '">Ссылка</a> для подтверждения смены e-mail</p>';
 
       if ($this->isLocalhost) {
          $this->saveToFile($newEmail, $subject, $message);
@@ -74,9 +68,9 @@ class Mail
       $date = time();
       $subject = "Забыли пароль";
       $message =
-         'Новый пароль:'."$pass
-         \r\n<a href='".$this->site.$this->activation_url.'?type=activation&subj=forgotten&hash='
-        .$hash.'&email='.$email."'>Принять новый пароль</a>";
+         '<p>Новый пароль:' . $pass . "\n</p>" .
+'<p><a href="' . $this->site . $this->activation_url . '?type=activation&subj=forgotten&hash='
+        . $hash . '&email=' . $email . '">Принять новый пароль</a></p>';
       if ($this->isLocalhost) {
          $this->saveToFile($email, $subject, $message);
       } else {
@@ -219,7 +213,143 @@ class mailer {
         }
         return $result;
     }
+}
 
+function sendEmail($to, $subject, $text, $from, $fromName) {
+   $mail = new mailer();
+   $mail->from = $from;
+   $mail->fromName = $fromName;
+   $mail->addAddress($to, '');
+   $mail->isHTML(true);
+   $mail->subject = $subject;
+   $mail->body = $text;
+   $mail->send();
+}
+
+class mailer {
+    var $priority         = 3;
+    var $charSet          = "utf-8";
+    var $contentType      = "text/plain";
+    var $encoding         = "8bit";
+    var $errorInfo        = "";
+    var $from             = "root@localhost";
+    var $fromName         = "Root User";
+    var $sender           = "";
+    var $subject          = "";
+    var $body             = "";
+    var $altBody          = "";
+    var $wordWrap         = 0;
+    var $mailer           = "mail";
+    var $sendmail         = "/usr/sbin/sendmail";
+    var $pluginDir        = "";
+    var $version          = "1.73";
+    var $confirmReadingTo = "";
+    var $hostname         = "";
+    var $host             = "localhost";
+    var $port             = 25;
+    var $helo             = "";
+    var $SMTPAuth         = false;
+    var $username         = "";
+    var $password         = "";
+    var $timeout          = 10;
+    var $SMTPDebug        = false;
+    var $SMTPKeepAlive    = false;
+    var $smtp             = NULL;
+    var $to               = array();
+    var $cc               = array();
+    var $bcc              = array();
+    var $replyTo          = array();
+    var $attachment       = array();
+    var $customHeader     = array();
+    var $message_type     = "";
+    var $boundary         = array();
+    var $language         = array();
+    var $error_count      = 0;
+    var $LE               = "\n";
+
+    function addAddress($address, $name = "") {
+        $cur = count($this->to);
+        $this->to[$cur][0] = trim($address);
+        $this->to[$cur][1] = $name;
+    }
+
+    function isHTML($bool) {
+        if($bool == true)
+            $this->contentType = "text/html";
+        else
+            $this->contentType = "text/plain";
+    }
+
+    function isSMTP() {
+        $this->mailer = "smtp";
+    }
+
+    function isMail() {
+        $this->mailer = "mail";
+    }
+
+    function isSendmail() {
+        $this->mailer = "sendmail";
+    }
+
+    function isQmail() {
+        $this->sendmail = "/var/qmail/bin/sendmail";
+        $this->mailer = "sendmail";
+    }
+
+    function addCC($address, $name = "") {
+        $cur = count($this->cc);
+        $this->cc[$cur][0] = trim($address);
+        $this->cc[$cur][1] = $name;
+    }
+
+    function addBCC($address, $name = "") {
+        $cur = count($this->bcc);
+        $this->bcc[$cur][0] = trim($address);
+        $this->bcc[$cur][1] = $name;
+    }
+
+    function addReplyTo($address, $name = "") {
+        $cur = count($this->replyTo);
+        $this->replyTo[$cur][0] = trim($address);
+        $this->replyTo[$cur][1] = $name;
+    }
+
+    function send() {
+        $header = "";
+        $body = "";
+        $result = true;
+        if((count($this->to) + count($this->cc) + count($this->bcc)) < 1) {
+            return false;
+        }
+        if(!empty($this->altBody))
+            $this->contentType = "multipart/alternative";
+        $this->error_count = 0;
+        $this->setMessageType();
+        $header .= $this->createHeader();
+        $body = $this->createBody();
+        if($body == "")
+         return false;
+
+        switch($this->mailer)
+        {
+            case "sendmail":
+                $result = $this->sendmailSend($header, $body);
+                break;
+            case "mail":
+                $result = $this->mailSend($header, $body);
+                break;
+            case "smtp":
+                $result = $this->smtpSend($header, $body);
+                break;
+            default:
+                $result = false;
+                break;
+        }
+        return $result;
+    }
+
+>>>>>>> origin/master
     function sendmailSend($header, $body) {
         if ($this->sender != "")
             $sendmail = sprintf("%s -oi -f %s -t", $this->sendmail, $this->sender);
@@ -236,7 +366,7 @@ class mailer {
         }
         return true;
     }
-   
+
     function mailSend($header, $body) {
         $to = "";
         for($i = 0; $i < count($this->to); $i++) {
@@ -344,7 +474,7 @@ class mailer {
             }
         }
     }
-   
+
     function addrAppend($type, $addr) {
         $addr_str = $type . ": ";
         $addr_str .= $this->addrFormat($addr[0]);
@@ -535,6 +665,7 @@ class mailer {
 
                 $result .= $this->encodeString($this->body, $this->encoding);
                 $result .= $this->LE.$this->LE;
+<<<<<<< HEAD
 
                 $result .= $this->endBoundary($this->boundary[1]);
                 break;
@@ -552,6 +683,25 @@ class mailer {
                 $result .= sprintf("--%s%s", $this->boundary[1], $this->LE);
                 $result .= sprintf("Content-Type: %s;%s"."\tboundary=\"%s\"%s", "multipart/alternative", $this->LE, $this->boundary[2], $this->LE.$this->LE);
 
+=======
+
+                $result .= $this->endBoundary($this->boundary[1]);
+                break;
+            case "plain":
+                $result .= $this->encodeString($this->body, $this->encoding);
+                break;
+            case "attachments":
+                $result .= $this->getBoundary($this->boundary[1], "", "", "");
+                $result .= $this->encodeString($this->body, $this->encoding);
+                $result .= $this->LE;
+
+                $result .= $this->attachAll();
+                break;
+            case "alt_attachments":
+                $result .= sprintf("--%s%s", $this->boundary[1], $this->LE);
+                $result .= sprintf("Content-Type: %s;%s"."\tboundary=\"%s\"%s", "multipart/alternative", $this->LE, $this->boundary[2], $this->LE.$this->LE);
+
+>>>>>>> origin/master
                 // Create text body
                 $result .= $this->getBoundary($this->boundary[2], "", "text/plain", "") . $this->LE;
 
@@ -805,7 +955,7 @@ class mailer {
         $this->attachment[$cur][6] = "attachment";
         $this->attachment[$cur][7] = 0;
     }
-   
+
     function addEmbeddedImage($path, $cid, $name = "", $encoding = "base64", $type = "application/octet-stream") {
 
         if(!@is_file($path)) {

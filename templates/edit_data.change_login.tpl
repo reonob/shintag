@@ -1,6 +1,6 @@
 <h1>Изменение логина</h1>
-<p style="font-weight: bold">{$errorMsg|default:''}</p>
-<p style="font-weight: bold">{$successMsg|default:''}</p>
+<p style="font-weight: bold; text-align: center">{$errorMsg|default:''}</p>
+<p style="font-weight: bold; text-align: center">{$successMsg|default:''}</p>
 <table>
   <tr>
     <td class="label"><label for="new_login">Новый логин</label></td>

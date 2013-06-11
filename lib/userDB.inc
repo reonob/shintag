@@ -4,9 +4,10 @@
 
    class UserDB
    {
-      private $id;
+      public $id;
 
       public $salt;
+	  public $about;
       public $email;
       public $login;
       public $phone;
@@ -15,8 +16,8 @@
       public $city_id;
       public $password;
       public $region_id;
-      public $country_id;
       public $other_info;
+      public $country_id;
       public $verification;
       public $register_date;
 
@@ -42,7 +43,7 @@
          global $db;
          $query = 'SELECT id, email, login, password, verification, salt,
                           UNIX_TIMESTAMP(register_date) as register_date,
-                          country_id, region_id, city_id, phone, skype, other_info, adress
+                          country_id, region_id, city_id, phone, skype, other_info, adress, about
                    FROM users WHERE email = ?';
          $data = $db->query($query, array($email));
          $this->email = $email;
@@ -59,12 +60,12 @@
          $query = 'UPDATE users SET email = ?, login = ?, password = ?,
                           verification = ?, salt = ?, register_date = ?,
                           country_id = ?, region_id = ?, city_id = ?, phone = ?,
-                          skype = ?, other_info = ?, adress = ?
+                          skype = ?, other_info = ?, adress = ?, about = ?
                   WHERE id = ?';
          $new_values = array($this->email, $this->login, $this->password, $this->verification,
                              $this->salt, $data_h->unixToMySQL($this->register_date),
                              $this->country_id, $this->region_id, $this->city_id, $this->phone,
-                             $this->skype, $this->other_info, $this->adress, $this->id);
+                             $this->skype, $this->other_info, $this->adress, $this->about, $this->id);
          $db->query($query, $new_values, false);
       }
 
@@ -72,12 +73,12 @@
       {
          global $db, $data_h;
          $query = 'INSERT INTO users(email, login, password, verification, salt, register_date,
-                                     country_id, region_id, city_id, phone, skype, other_info, adress)
-                   VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+                                     country_id, region_id, city_id, phone, skype, other_info, adress, about)
+                   VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
          $values = array($this->email, $this->login, $this->password, $this->verification,
                          $this->salt, $data_h->unixToMySQL($this->register_date),
                          $this->country_id, $this->region_id, $this->city_id, $this->phone,
-                         $this->skype, $this->other_info, $this->adress);
+                         $this->skype, $this->other_info, $this->adress, $this->about);
          $data = $db->query($query, $values, false);
       }
 
