@@ -1,5 +1,5 @@
 <?php
-   define('CONFIRMATION_TERM', 1800); //86400
+   define('CONFIRMATION_TERM', 86400); //1800
    define('COOKIE_LIFETIME', 86400000);
    define('COOKIE_SITE', "kolesa.su.com");
    define('ERROR_QUERY', 'В данный момент невозможно подключение к базе данных.');
