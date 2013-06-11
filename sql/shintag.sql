@@ -1,16 +1,9 @@
-CREATE DATABASE shintag DEFAULT CHARSET utf8;
-
-use shintag;
-
-GRANT SELECT, INSERT, UPDATE, DELETE
-ON shintag.*
-TO smite@localhost IDENTIFIED BY 'smite107';
 -- phpMyAdmin SQL Dump
 -- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Июн 05 2013 г., 17:15
+-- Время создания: Июн 11 2013 г., 19:23
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -56,6 +49,53 @@ INSERT INTO `auto_type` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `images`
+--
+
+CREATE TABLE IF NOT EXISTS `images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ad_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=60 ;
+
+--
+-- Дамп данных таблицы `images`
+--
+
+INSERT INTO `images` (`id`, `ad_id`) VALUES
+(58, 15);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `main_ads`
+--
+
+CREATE TABLE IF NOT EXISTS `main_ads` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `text` text NOT NULL,
+  `date` date DEFAULT NULL,
+  `time` int(11) NOT NULL,
+  `contacts` text,
+  `mail` varchar(100) DEFAULT NULL,
+  `reffer` int(11) NOT NULL,
+  `ad_type` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `reffer` (`reffer`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+
+--
+-- Дамп данных таблицы `main_ads`
+--
+
+INSERT INTO `main_ads` (`id`, `name`, `text`, `date`, `time`, `contacts`, `mail`, `reffer`, `ad_type`, `user_id`) VALUES
+(15, 'FUCK THERE', 'f dsfs dfsdf sdf sdf sdf dsff dsfs dfsdf sdf sdf sdf dsff dsfs dfsdf sdf sdf sdf dsff dsfs dfsdf sdf sdf sdf dsf', '2013-06-10', 1, '79147016320\r\n+478596587', 'abramin@mail.ru', 58, 1, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `product_state`
 --
 
@@ -82,17 +122,24 @@ INSERT INTO `product_state` (`id`, `name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `tyres_ads` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(256) NOT NULL,
   `width` int(11) NOT NULL,
   `height` int(11) NOT NULL,
   `radius` int(11) NOT NULL,
-  `season` int(11) DEFAULT NULL,
+  `season` int(11) NOT NULL,
   `year` int(11) DEFAULT NULL,
-  `brand` int(11) DEFAULT NULL,
+  `brand` int(11) NOT NULL,
   `state` int(11) NOT NULL,
   `count` int(4) NOT NULL,
+  `price` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=59 ;
+
+--
+-- Дамп данных таблицы `tyres_ads`
+--
+
+INSERT INTO `tyres_ads` (`id`, `width`, `height`, `radius`, `season`, `year`, `brand`, `state`, `count`, `price`) VALUES
+(58, 2, 2, 5, 2, 12, 1, 1, 43, 35453);
 
 -- --------------------------------------------------------
 
@@ -267,13 +314,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `verification` tinyint(1) NOT NULL,
   `salt` varchar(8) NOT NULL,
   `register_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `country_id` int DEFAULT 0,
-  `region_id` int DEFAULT 0,
-  `city_id` int DEFAULT 0,
-  `phone` varchar(20),
-  `skype` varchar(30),
-  `other_info` varchar(70),
-  `adress` varchar(70),
+  `country_id` int(11) DEFAULT '0',
+  `region_id` int(11) DEFAULT '0',
+  `city_id` int(11) DEFAULT '0',
+  `phone` varchar(20) DEFAULT NULL,
+  `skype` varchar(30) DEFAULT NULL,
+  `other_info` varchar(70) DEFAULT NULL,
+  `adress` varchar(70) DEFAULT NULL,
+  `about` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
@@ -282,8 +330,28 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `login`, `password`, `verification`, `salt`, `register_date`) VALUES
-(2, 'abramin@mail.ru', 'smite', 'd6cba792707526f4ba51833aed08eac4ed99df87', 1, 'xmvLyx', '2013-05-10 15:07:41');
+INSERT INTO `users` (`id`, `email`, `login`, `password`, `verification`, `salt`, `register_date`, `country_id`, `region_id`, `city_id`, `phone`, `skype`, `other_info`, `adress`, `about`) VALUES
+(2, 'abramin@mail.ru', 'smite1', '289e9407958d312eafe924609b0eb3ec', 1, '9ACM85W', '2013-06-06 16:55:07', 0, 0, 0, '534636546', 'fdfhgh', 'dfgdfgf', '4545tr', 'gdfgdfgdg');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `wheels_brand`
+--
+
+CREATE TABLE IF NOT EXISTS `wheels_brand` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `wheels_brand`
+--
+
+INSERT INTO `wheels_brand` (`id`, `name`) VALUES
+(1, 'some_brand');
 
 -- --------------------------------------------------------
 

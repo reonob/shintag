@@ -1,0 +1,78 @@
+/* 
+	#1b1b1f - темный основной  
+	black - текст (темный)
+	white - текст (светлый)
+	#fee232 - желтый
+	#c30e18 - красный
+	#444 - серый
+*/
+#card_edit label {
+	display: block;
+	font-weight: bold;
+	margin: 7px 0;
+}
+#card_edit .inline {
+	display: inline-block;
+}
+#card_edit label.inline {
+	margin: 5px;
+}
+#card_edit div.inline {
+	margin-right: 15px;
+}
+#card_edit select {
+	height: 25px;
+	width: auto;
+}
+#card_edit input {
+	border: 1px #888 solid;
+	height: 23px;
+	padding: 0 5px;
+}
+#card_edit input.min {
+	width: 75px;
+}
+#card_edit button.red_button {
+	margin-top: 10px;
+	display: block;
+}
+#card_edit textarea {
+	min-width: 250px;
+	padding: 5px;
+	min-height: 44px;
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+#upload_photo {
+	margin: 25px 0;
+	display: block;
+}
+#photos_div div.in_image img {
+	width: 101px;
+	height: 101px;
+	border: 1px #999 solid;
+	margin-right: 5px;
+	vertical-align: top;
+	margin-bottom: 5px; 
+}
+#photos_div div.in_image {
+	text-align: left;
+	margin: 5px 0;
+	position: relative;
+	display: inline-block;
+}
+#status_photos {
+	font-family:Arial; padding:5px;
+}
+#photos_div div.in_image button {
+	position: absolute;
+	top: 1px;
+	left: 87px;
+	border: 0px;
+	opacity: 0.7;
+	background: red;
+	color: white;
+	font-family: Calibri;
+	width: 15px;
+	height: 15px;
+	padding: 0;
+}

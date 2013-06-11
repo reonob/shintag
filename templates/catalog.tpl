@@ -144,7 +144,7 @@
 		<li><a href="#">Услуги</a></li>
 	</ul>
 	<div class="catalog">
-		<!--
+		
 		<article class="price">
 			<a href="#"><img src="/images/tyres/im1.jpg" class="avatar"></a>
 			<h1><a href="#">Bridgestone S322 Tubeless</a></h1>
@@ -201,9 +201,8 @@
 			<span class="price">3 412 $</span>
 			<div class="raiting"></div>
 		</article>
-		-->
+		<!-
 		<table>
-			<!--
 			<tr class="top_head">
 				<td>Фото</td>
 				<td>Название</td>
@@ -213,7 +212,6 @@
 				<td>Количество</td>
 				<td>Цена</td>
 			</tr>
-			-->
 			<tr class="top_head">
 				<td>Фото</td>
 				<td>Название</td>
@@ -245,5 +243,6 @@
 				<td class="price nowrap">3 412 $</td>
 			</tr>
 		</table>
+		-->
 	</div>
 </div>
