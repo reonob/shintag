@@ -27,7 +27,6 @@
 	
 	$images = $ImagesHandler->Select($id);
 	$smarty->assign('images', $images);
-	
 	$user = new UserDB();
 	$user = $user->findById($ad_arr['user_id']);
 	//$user_info = array('login' => $user->login);
