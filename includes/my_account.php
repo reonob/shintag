@@ -2,7 +2,9 @@
    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/container.php';
    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/class.CreateForm.php';
    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/guardian.php';
-
+   
+   include $_SERVER['DOCUMENT_ROOT'] . '/includes/catalog.php';
+   
    //contact info
    $user = new UserDB($_SESSION['email']);
    //$user = new UserDB('abramin@mail.ru');
@@ -34,6 +36,9 @@
       // $geo_locations['regions'][$row['id']] = $row['region'];
    // }
 
+   $catalog = array('ad_type' => 1, 'ad_saler' => false, 'extend_block' => true, 'search_for_my' => true);
+   $smarty->assign('catalog', $catalog);
+   
    $smarty->assign('contact_info', $ci)
           ->assign('geo_locations', $geo_locations)
           ->display('my_account.tpl');

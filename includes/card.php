@@ -15,8 +15,7 @@
 	$smarty->assign('images', $images);
 	$smarty->assign('images_count', count($images));
 	
-	$user = new UserDB();
-	$user = $user->findById($ad_arr['user_id']);
+	$user = UserDB::findById($ad_arr['user_id']);
 	$user_info = array('login' => $user->login);
 	///////
 	//$city = $db->query('SELECT c.name FROM city c WHERE c.id=?', array($user->city));
