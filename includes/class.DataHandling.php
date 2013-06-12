@@ -22,6 +22,14 @@
          return $this;
       }
 
+      public function validateNum($num, $message)
+      {
+         if (!is_numeric($num)) {
+            throw new Exception($message);
+         }
+         return $this;
+      }
+
       public function validateLogin($login, $message = ERROR_LOGIN_LEN)
       {
          if (strlen($login) < LOGIN_LEN) throw new Exception($message);
