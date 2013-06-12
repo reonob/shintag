@@ -11,9 +11,9 @@
   <script src="/js/check_form.js"></script>
 {/block}
 {block name='div.main' append}
+<form id="edit_ad_form" name="edit_ad_form" action="/includes/card_edit.php?ad_id={$ad_id}" method="POST">
   <article id="card_edit">
 	<div class="column">
-		<form id="edit_ad_form" name="edit_ad_form" action="/includes/edit.php" method="POST">
 			{if $ad_arr['ad_type'] == 1}
 				<label for="tyres_width">Размер, см *</label>
 				{$select_tyres_width} / {$select_tyres_height} R {$select_tyres_radius}
@@ -57,7 +57,6 @@
 			<!--<div>
 				<button class="red_button" name="submit" value="submit">Сохранить</button>
 			</div>-->
-		</form>
 	</div>
 	<div class="column">
 		<label for="tyres_width">Заголовок объявления *</label>
@@ -81,9 +80,10 @@
 			</div>
 			<span id="status_photo"></span>
 			<div>
-				<button class="red_button">Сохранить и перейти на страницу объявления</button>
+				<button class="red_button" name="submit" value="submit">Сохранить и перейти на страницу объявления</button>
 			</div>
 		</div>
 	</div>
   </article>
+</form>
 {/block}

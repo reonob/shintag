@@ -7,7 +7,7 @@
       public $id;
 
       public $salt;
-	  public $about;
+      public $about;
       public $email;
       public $login;
       public $phone;

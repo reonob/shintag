@@ -20,6 +20,6 @@
 	$smarty->assign('label_and_select_wheels_brand', get_label_and_select($db, 'wheels_brand', 'Производитель', true, 'long'));
 
 	$smarty->assign('label_and_select_accessories_state', get_label_and_select($db, 'product_state', 'Состояние', true, '', 'accessories_state'));
-	
+
 	$smarty->display('index.tpl');
 ?>

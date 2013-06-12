@@ -71,7 +71,6 @@
          } else {
             throw new Exception(ERROR_CHANGE_MAIL);
          }
-         unset($_SESSION['email']);
          $smarty->assign('successMsg', 'E-mail успешно изменен.');
       }
 

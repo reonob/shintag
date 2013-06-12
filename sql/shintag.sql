@@ -1,3 +1,11 @@
+CREATE DATABASE shintag DEFAULT CHARSET utf8;
+
+use shintag;
+
+GRANT SELECT, INSERT, UPDATE, DELETE
+ON shintag.*
+TO smite@localhost IDENTIFIED BY 'smite107';
+
 -- phpMyAdmin SQL Dump
 -- version 3.5.1
 -- http://www.phpmyadmin.net
