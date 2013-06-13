@@ -58,8 +58,8 @@
 						<label for="tyres_width">Размер, см *</label>
 						{$select_tyres_width} / {$select_tyres_height} R {$select_tyres_radius}
 						{$label_and_select_tyres_season}
-						<label for="tyres_price">Цена, руб *</label>
-						<input type="text" id="tyres_price" name="tyres_price" class="min" />
+						<label for="ad_price">Цена, руб *</label>
+						<input type="text" id="ad_price" name="ad_price" class="min" />
 						{$label_and_select_tyres_brand}
 						{$label_and_select_tyres_year}
 						{$label_and_select_tyres_state}
@@ -107,8 +107,8 @@
 							{$label_and_select_wheels_et}
 						</div>
 						{$label_and_select_wheels_type}
-						<label for="wheels_price">Цена, руб *</label>
-						<input type="text" id="wheels_price" name="wheels_price" class="min" />
+						<label for="ad_price">Цена, руб *</label>
+						<input type="text" id="ad_price" name="ad_price" class="min" />
 						{$label_and_select_wheels_brand}
 						{$label_and_select_wheels_year}
 						{$label_and_select_wheels_state}

@@ -1,17 +1,9 @@
-CREATE DATABASE shintag DEFAULT CHARSET utf8;
-
-use shintag;
-
-GRANT SELECT, INSERT, UPDATE, DELETE
-ON shintag.*
-TO smite@localhost IDENTIFIED BY 'smite107';
-
 -- phpMyAdmin SQL Dump
 -- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Июн 11 2013 г., 19:23
+-- Время создания: Июн 13 2013 г., 15:48
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -64,14 +56,14 @@ CREATE TABLE IF NOT EXISTS `images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ad_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=60 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
 
 --
 -- Дамп данных таблицы `images`
 --
 
 INSERT INTO `images` (`id`, `ad_id`) VALUES
-(58, 15);
+(63, 16);
 
 -- --------------------------------------------------------
 
@@ -92,14 +84,14 @@ CREATE TABLE IF NOT EXISTS `main_ads` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `reffer` (`reffer`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Дамп данных таблицы `main_ads`
 --
 
 INSERT INTO `main_ads` (`id`, `name`, `text`, `date`, `time`, `contacts`, `mail`, `reffer`, `ad_type`, `user_id`) VALUES
-(15, 'FUCK THERE', 'f dsfs dfsdf sdf sdf sdf dsff dsfs dfsdf sdf sdf sdf dsff dsfs dfsdf sdf sdf sdf dsff dsfs dfsdf sdf sdf sdf dsf', '2013-06-10', 1, '79147016320\r\n+478596587', 'abramin@mail.ru', 58, 1, 2);
+(16, 'dsddddddd', 'fsfsfsdfsfsdf', NULL, 1, '433434', 'abramin@mail.ru', 59, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -140,14 +132,14 @@ CREATE TABLE IF NOT EXISTS `tyres_ads` (
   `count` int(4) NOT NULL,
   `price` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=59 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=60 ;
 
 --
 -- Дамп данных таблицы `tyres_ads`
 --
 
 INSERT INTO `tyres_ads` (`id`, `width`, `height`, `radius`, `season`, `year`, `brand`, `state`, `count`, `price`) VALUES
-(58, 2, 2, 5, 2, 12, 1, 1, 43, 35453);
+(59, 1, 1, 5, 1, 12, 1, 1, 43242, 342);
 
 -- --------------------------------------------------------
 

@@ -18,8 +18,8 @@
 				<label for="tyres_width">Размер, см *</label>
 				{$select_tyres_width} / {$select_tyres_height} R {$select_tyres_radius}
 				{$label_and_select_tyres_season}
-				<label for="tyres_price">Цена, руб *</label>
-				<input type="text" id="tyres_price" name="tyres_price" class="min" value="{$ad_arr['ad_price']}" />
+				<label for="ad_price">Цена, руб *</label>
+				<input type="text" id="ad_price" name="ad_price" class="min" value="{$ad_arr['ad_price']}" />
 				{$label_and_select_tyres_brand}
 				{$label_and_select_tyres_year}
 				{$label_and_select_tyres_state}
@@ -59,7 +59,7 @@
 			</div>-->
 	</div>
 	<div class="column">
-		<label for="tyres_width">Заголовок объявления *</label>
+		<label for="ad_name">Заголовок объявления *</label>
 		<input type="text" id="ad_name" name="ad_name" size="70" value="{$ad_arr['ad_name']}" />
 		<label for="ad_text">Текст объявления *</label>
 		<textarea name="ad_text" id="ad_text" rows="15" cols="100">{$ad_arr['ad_text']}</textarea>

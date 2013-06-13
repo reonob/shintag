@@ -26,9 +26,10 @@
 			return $st->fetchAll(PDO::FETCH_ASSOC);
 		}
 		
-		public function Insert($table_name, $values) //первый параметр название таблицы 
+		public function Insert($table_name, $arr) //первый параметр название таблицы 
 		{
-			$query = "INSERT INTO " . $table_name . " VALUES (" . str_repeat('?,', count($values)-1) . "?)";
+			$values = array_values($arr);
+			$query = "INSERT INTO " . $table_name . " (" . join(',', array_keys($arr)) . ") VALUES (" . str_repeat('?,', count($values)-1) . "?)";
 			$this->exec($query, $values);
 			return $this->link->lastInsertId();
 		}
@@ -47,13 +48,14 @@
 				$set[] = $key . '=?';
 			}
 			$query = "UPDATE " . $table_name . " SET " . join(', ', $set) . " WHERE " . $table_name . ".id = ?";
-			$arr = $this->query($query, array_merge(array_values($arr), array($id))); //послдений ? - id
+			//var_dump($query);
+			$this->exec($query, array_merge(array_values($arr), array($id))); //послдений ? - id
 		}
 		
 		public function Delete($table_name, $id) 
 		{
 			$query = "DELETE FROM " . $table_name . " WHERE " . $table_name . ".id = ?";
-			$arr = $this->query($query, array($id));
+			$this->exec($query, array($id));
 		}
 		
    }

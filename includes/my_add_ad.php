@@ -30,8 +30,8 @@
 	if ($_GET['step'] == 3) {
 		$obj = unserialize($_SESSION['ad_info']);
 		foreach($_POST as $key => $val) {
-			if (array_key_exists($key, $obj->sub_params) && $val != 'unset') {
-				$obj->sub_params[$key] = $val;
+			if (array_key_exists($key, $obj->sub_fields) && $val != 'unset') {
+				$obj->sub_fields[$key]->val = $val;
 			}
 		}
 		$_SESSION['ad_info'] = serialize($obj);
@@ -39,13 +39,13 @@
 	if ($_GET['step'] == 4) {
 		$obj = unserialize($_SESSION['ad_info']);
 		foreach($_POST as $key => $val) {
-			if (array_key_exists($key, $obj->main_params)) {
-				$obj->main_params[$key] = $val;
+			if (array_key_exists($key, $obj->main_fields)) {
+				$obj->main_fields[$key]->val = $val;
 			}
 		}
 
 		$user = new UserDB($_SESSION['email']);
-		$obj->main_params['user_id'] = $user->id;
+		$obj->main_fields['user_id']->val = $user->id;
 
 		$ad_id = $obj->Insert();
 		$smarty->assign('ad_id', $ad_id);

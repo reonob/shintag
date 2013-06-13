@@ -8,28 +8,29 @@
    $smarty->assign('ad_id', $id);
 
    $obj = Ads::Get_ad_from_id($id);
-   $ad_arr = $obj->Get_string();
-
-   $smarty->assign('ad_arr', $ad_arr);
-   $user = UserDB::findById($ad_arr['user_id']);
+   
    if (empty($_SESSION) || ($_SESSION['email'] != $user->email)) {
-      // header("Location: /includes/card.php?ad_id=" . $_GET['ad_id']);
+      // header("Location: /includes/card.php?ad_id=" . $id);
    }
    if (isset($_POST['submit'])) {
       foreach($_POST as $key => $val) {
-         if (array_key_exists($key, $obj->main_params)) {
-            $obj->main_params[$key] = $val;
-         } elseif (array_key_exists($key, $obj->sub_params)) {
-            $obj->sub_params[$key] = $val;
+         if (array_key_exists($key, $obj->main_fields)) {
+            $obj->main_fields[$key]->val = $val;
+         } elseif (array_key_exists($key, $obj->sub_fields)) {
+            $obj->sub_params[$key]->val = $val;
          }
       }
+	  
       try {
-         $obj->validate();
          $obj->Update();
       } catch (Exception $e) {
          echo $e->getMessage();
       }
    }
+   $ad_arr = $obj->Get_string();
+
+   $smarty->assign('ad_arr', $ad_arr);
+   $user = UserDB::findById($ad_arr['user_id']);
 
 /*
    $smarty->assign('label_and_select_wheels_width', get_label_and_select($db, 'wheels_width', 'Ширина, см', true));
